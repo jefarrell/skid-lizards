@@ -36,8 +36,18 @@ const skull =
 `
 
 console.log(skull);
+const base = document.getElementsByClassName('root')[0];
 const inner_root = document.getElementsByClassName('inner_root')[0];
 const skull_wrap = document.getElementsByClassName('skull_wrap')[0];
+const audio = new Audio('./src/assets/metal.wav');
+
+base.addEventListener('mouseover', () => {
+  audio.play();
+});
+
+base.addEventListener('mouseleave', () => {
+  audio.pause();
+});
 
 let last_scroll_pos = 0;
 let ticking = false;
