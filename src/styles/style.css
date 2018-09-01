@@ -1,3 +1,5 @@
+
+
 body {
 	font-family: 'EB Garamond', serif;
 	margin: 0;
@@ -9,46 +11,68 @@ body {
 	height: 3000px;
 }
 
-.inner_root {
+.inner-root {
   position: fixed;
-  display: flex;
-  flex-direction: column;
-  top: 10%;
-  left: 0;
+  width: 100vw;
+  height: 100vh;
+  bottom: 0;
   right: 0;
+	background-image: url('../assets/bg.JPG');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	background-blend-mode: multiply;
 }
 
-.inner_root span {
-	font-size: 10em;
-	font-weight: 700;
-	display: block;
-	text-align: center;
-	text-transform: uppercase;
-	animation: cycleCol 0.25s infinite linear;
+.logo-container {
+	margin: 0 auto;
+  width: 50vw;
+  height: 50vw;
+  position: relative;
+  top: 10vh;
+
 }
 
-.skull_wrap {
-	display: block;
-	position: fixed;
-	line-height: 0.25;
-	margin-top: 7%;
+.logo-text,
+.logo-hand {
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 50vw;
+	height: 50vw;
+	position: absolute;
 }
 
-.skull_wrap pre {
-	line-height: 0.25;
-	margin-left: 10%;
-	color: red;
-	text-shadow: 2px 2px #000;
+.logo-text {
+	background-image: url('../assets/text.png');
+	animation: rotate 60s linear infinite;
+	z-index: 10;
 }
 
-@keyframes cycleCol {
- 	0% { color: #000; text-shadow: 10px 10px #FF0000; }
-  50% { color: #FF0000; text-shadow: 10px 10px #000; }
-  100% { color: #000; text-shadow: 10px 10px #FF0000; }
+.logo-hand {
+	background-image: url('../assets/hand.png');
+	z-index: 0;
 }
 
-@media (max-width:641px)  {
-	.inner_root span {
-		font-size: 6em;
+.logo-hand-crop {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-image: url(../assets/hand-crop.png);
+  background-size: contain;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: right;
+  z-index: 20;
+}
+
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
 	}
 }
