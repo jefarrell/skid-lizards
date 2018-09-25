@@ -1,0 +1,15 @@
+.top-nav-wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	background-color: $BLACK;
+	height: 100px;
+
+	& a {
+		color: $WHITE;
+	}
+}
+
+.top-nav-li {
+	list-style: none;
+}

@@ -1,0 +1,14 @@
+
+{
+	"presets" : [
+		[ 
+			"env", 
+			{
+				"modules": "commonjs"
+			}
+		],
+    	"react",
+		"stage-0"
+	],
+	"plugins": []
+}

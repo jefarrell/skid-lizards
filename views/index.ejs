@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Pack Death Pact</title>
+    <script>
+      <%- ctx ? "window.prismic = { endpoint: '" + ctx.endpoint + "' };" : "" -%>
+      <% var maybeCurrentExperiment = ctx.api.currentExperiment(); %>
+      <% if (maybeCurrentExperiment) { %>
+        <% var googleId = maybeCurrentExperiment.googleId() %>
+        window.googleId = "<%- googleId -%>";
+      <% } %>
+    </script>
+    <script src="//static.cdn.prismic.io/prismic.min.js"></script>
+    <link rel="stylesheet" href="./js/compiled/app.bundle.css" />
+   <!--  <script>PrismicToolbar.startExperiment(window.googleId);</script> -->
+  </head>
+  <body>
+    <div id="main"><%- markup -%></div>
+    <script>
+      window.__PRISMIC__ = <%- JSON.stringify(PRISMIC_UNIVERSAL_DATA) -%>;
+    </script>
+    <script src="/js/compiled/client.js"></script>
+  </body>
+</html>
