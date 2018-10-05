@@ -1,12 +1,12 @@
 .top-nav-wrapper {
-	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	background-color: $BLACK;
-	height: 100px;
+	padding: 32px;
 
 	& a {
 		color: $WHITE;
+		text-decoration: none;
 	}
 }
 

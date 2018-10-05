@@ -14,7 +14,6 @@ export default (({prismicCtx, PRISMIC_UNIVERSAL_DATA}) => {
       {routes(prismicCtx, PRISMIC_UNIVERSAL_DATA).map((route, index) => {
         const copyRoute = Object.assign({}, route);
         if(copyRoute.render) delete copyRoute.component;
-        console.log("in router: ", {...copyRoute})
         return <Route key={`route-${index}`} {...copyRoute}/>;
       })}
     </Switch>

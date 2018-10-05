@@ -6,12 +6,13 @@ import FullWidthImage from './slices/FullWidthImage';
 import Quote from './slices/Quote';
 import ImageGallery from './slices/ImageGallery';
 import ImageHighlight from './slices/ImageHighlight';
+import { RichText } from 'prismic-reactjs';
 
 class Page extends React.Component {
   
   constructor(props) {
     super(props);
-    
+  
     this.state = {
       notFound: false,
       linkResolver : null,
@@ -20,34 +21,17 @@ class Page extends React.Component {
 
   render() {
     if (this.props.PRISMIC_UNIVERSAL_DATA) {
-      const document = this.props.PRISMIC_UNIVERSAL_DATA;
-      
-      var pageContent = document.data.page_content.map(function(slice, index){
-        switch (slice.slice_type) {
-          case "text_section":
-            return <TextSection key={index} slice={slice}/>;
-            break;
-          case "full_width_image":
-            return <FullWidthImage key={index} slice={slice}/>;
-            break;
-          case "quote":
-            return <Quote key={index} slice={slice}/>;
-            break;
-          case "image_gallery":
-            return <ImageGallery key={index} slice={slice}/>;
-            break;
-          case "image_highlight":
-            return <ImageHighlight key={index} slice={slice}/>;
-            break;
-          default:
-            return <p>{slice.slice_type}</p>;
-            break;
-        }
-      });
-      
+      const prismicData = this.props.PRISMIC_UNIVERSAL_DATA;
+      const { data } = prismicData
+      console.log("page data", data)
+      const heroStyle = {
+        backgroundImage: `url(${data.hero_image.url})`
+      }
       return(
-        <div className="container" data-wio-id={document.id}>
-          { pageContent }
+        <div className="page-container" data-wio-id={ data.id }>
+          <section className="page-hero" style={ heroStyle }>
+            <h1>{ data.title[0].text }</h1>
+          </section>
         </div>
       );
     } else if (this.state.notFound) {
@@ -59,6 +43,7 @@ class Page extends React.Component {
 }
 
 export default PrismicReact.UniversalComponent({
-  request: (ctx, props) => ctx.api.getByUID('page', props.match.params.uid, {}),
+  request: (ctx, props) => ctx.api.getByUID('blog-post', props.match.params.uid, {}),
   component: Page
 });
+//<img className="page-hero-img" src={ data.hero_image.url } />

@@ -1,1 +1,7 @@
-*.DS_Store
+.DS_Store
+node_modules/
+npm-debug.log
+.vscode
+.babel_cache/
+public/js/compiled
+.DS_Store

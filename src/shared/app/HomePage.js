@@ -1,5 +1,4 @@
 import React from 'react';
-import NotFoundPage from './NotFoundPage';
 
 import PrismicReact from '../../prismic-react';
 import TextSection from './slices/TextSection';
@@ -9,6 +8,7 @@ import ImageGallery from './slices/ImageGallery';
 import ImageHighlight from './slices/ImageHighlight';
 import HomeBanner from './slices/HomeBanner';
 import PrismicQuery from './Utils.js';
+import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
   
@@ -30,52 +30,20 @@ class HomePage extends React.Component {
   }
 
   render() {
-    console.log("homepage props: ", this.props)
-    if (this.props.PRISMIC_UNIVERSAL_DATA) {
-      console.log("data: ", this.props.PRISMIC_UNIVERSAL_DATA)
-    }
+    const data = this.props.PRISMIC_UNIVERSAL_DATA
     return (
-      <p> BPDP </p>
+      <div>
+        {
+          data.results.map((post, index) => (
+            <div key={index}>
+              <Link to={`page/${post.uid}`}>
+                <p> { post.data.title[0].text } </p>
+              </Link>
+            </div>
+          ))
+        }
+      </div>
     )
-
-    //   const document = this.props.PRISMIC_UNIVERSAL_DATA;
-      
-    //   var pageContent = document.data.page_content.map(function(slice, index){
-    //     switch (slice.slice_type) {
-    //       case "text_section":
-    //         return <TextSection key={index} slice={slice}/>;
-    //         break;
-    //       case "full_width_image":
-    //         return <FullWidthImage key={index} slice={slice}/>;
-    //         break;
-    //       case "quote":
-    //         return <Quote key={index} slice={slice}/>;
-    //         break;
-    //       case "image_gallery":
-    //         return <ImageGallery key={index} slice={slice}/>;
-    //         break;
-    //       case "image_highlight":
-    //         return <ImageHighlight key={index} slice={slice}/>;
-    //         break;
-    //       default:
-    //         return <p>{slice.slice_type}</p>;
-    //         break;
-    //     }
-    //   });
-      
-    //   return (
-    //     <div data-wio-id={document.id}>
-    //       <HomeBanner document={document}/>
-    //       <div className="container">
-    //         { pageContent }
-    //       </div>
-    //     </div>
-    //   );
-    // } else if (this.state.notFound) {
-    //   return <NotFoundPage />;
-    // } else {
-    //   return <div>Loading...</div>;
-    // }
   }
 }
 

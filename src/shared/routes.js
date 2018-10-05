@@ -15,7 +15,6 @@ export default (prismicCtx, PRISMIC_UNIVERSAL_DATA) => {
     },
     {
       path: '/page/:uid',
-      //must be specified even with a render function
       component: Page,
       render(props) {
         return <Page {...props} prismicCtx={prismicCtx} PRISMIC_UNIVERSAL_DATA={PRISMIC_UNIVERSAL_DATA} />;
