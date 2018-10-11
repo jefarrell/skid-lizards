@@ -16,14 +16,15 @@ export default (prismicCtx, PRISMIC_UNIVERSAL_DATA) => {
     {
       path: '/page/:uid',
       component: Page,
+      exact: true,
       render(props) {
         return <Page {...props} prismicCtx={prismicCtx} PRISMIC_UNIVERSAL_DATA={PRISMIC_UNIVERSAL_DATA} />;
       }
     },
     {
       path: '/about',
-      exact: true,
       component: About,
+      exact: true,
       render(props) {
         return <About {...props} prismicCtx={prismicCtx} PRISMIC_UNIVERSAL_DATA={PRISMIC_UNIVERSAL_DATA} />;
       }

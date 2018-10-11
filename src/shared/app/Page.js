@@ -46,4 +46,3 @@ export default PrismicReact.UniversalComponent({
   request: (ctx, props) => ctx.api.getByUID('blog-post', props.match.params.uid, {}),
   component: Page
 });
-//<img className="page-hero-img" src={ data.hero_image.url } />

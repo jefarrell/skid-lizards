@@ -1,4 +1,17 @@
 @import './globals/constants';
 @import './globals/reset';
 @import 'top-nav';
+@import 'homepage';
 @import 'page';
+
+@font-face {
+	font-family: FoundersGrotesk;
+	src: url('./fonts/FoundersGroteskMonoWeb-Regular.woff') format('woff'),
+		url('./fonts/FoundersGroteskMonoWeb-Regular.woff2') format('woff2');
+	font-weight: normal;
+}
+
+body {
+	background-color: $GREEN;
+	font-family: FoundersGrotesk;
+}

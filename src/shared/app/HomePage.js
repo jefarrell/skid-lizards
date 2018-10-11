@@ -31,16 +31,26 @@ class HomePage extends React.Component {
 
   render() {
     const data = this.props.PRISMIC_UNIVERSAL_DATA
+    console.log("data", data.results)
+
     return (
-      <div>
+      <div className="homepage-wrapper">
         {
-          data.results.map((post, index) => (
-            <div key={index}>
+          data.results.map((post, index) => {
+            const offset = Math.floor(Math.random() * (200 - 1) + 1)
+            const blogStyle = {
+              backgroundImage: `url(${post.data.hero_image.url})`,
+              backgroundPositionX: offset
+            }
+            return (
               <Link to={`page/${post.uid}`}>
-                <p> { post.data.title[0].text } </p>
+              <div key={index} className="homepage-blogpost-wrapper">
+                  <div className="homepage-blogpost-bg" style={blogStyle} />
+                  <p className="homepage-blogpost-title"> { post.data.title[0].text } </p>
+              </div>
               </Link>
-            </div>
-          ))
+            )
+          })
         }
       </div>
     )

@@ -22,7 +22,7 @@ export const Layout = (props) => {
   return(
     <div className="app-container">
       <header className="top-nav-wrapper">
-        <Link to="/" className="top-nav-logo">Bike Pack Death Pact</Link>
+        <Link to="/" className="top-nav-logo">SKID LIZARDS</Link>
         <nav className="top-nav">
          <ul className="top-nav-ul"> { menu } </ul>
         </nav>

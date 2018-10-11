@@ -1,0 +1,32 @@
+
+
+.homepage-blogpost-wrapper {
+	margin: 20px $GUTTER;
+	height: 200px;
+	border: 5px solid $RED;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& > a {
+		text-decoration: none;
+	}
+}
+
+.homepage-blogpost-bg {
+	background-size: contain;
+	height: 200px;
+	width: 100%;
+	filter: blur(2px);
+	transition: filter 200ms linear;
+
+	&:hover {
+		filter: none;
+		transition: filter 200ms linear;
+	}
+}
+
+.homepage-blogpost-title {
+	color: $WHITE;
+	font-size: $PRIM-HEADING;
+	position: absolute;
+}

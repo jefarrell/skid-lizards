@@ -1,6 +1,7 @@
 import React from 'react';
 import router from '../router';
 import Layout from './Layout';
+import { withRouter } from 'react-router'
 
 export const App = (props) => {
   const menu = props.PRISMIC_UNIVERSAL_DATA.menu.data.menu_links;
@@ -11,4 +12,4 @@ export const App = (props) => {
   );
 };
 
-export default App;
+export default withRouter(App);
