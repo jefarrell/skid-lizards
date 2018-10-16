@@ -6,12 +6,35 @@
 
 @font-face {
 	font-family: FoundersGrotesk;
-	src: url('./fonts/FoundersGroteskMonoWeb-Regular.woff') format('woff'),
-		url('./fonts/FoundersGroteskMonoWeb-Regular.woff2') format('woff2');
+	src: url('./assets/fonts/FoundersGroteskWeb-Regular.woff') format('woff'),
+		url('./assets/fonts/FoundersGroteskWeb-Regular.woff2') format('woff2');
 	font-weight: normal;
+}
+
+@font-face {
+	font-family: FoundersGrotesk;
+	src: url('./assets/fonts/FoundersGroteskWeb-RegularItalic.woff') format('woff'),
+		url('./assets/fonts/FoundersGroteskWeb-RegularItalic.woff2') format('woff2');
+	font-style: italic;
+}
+
+@font-face {
+	font-family: FoundersGrotesk;
+	src: url('./assets/fonts/FoundersGroteskWeb-Bold.woff') format('woff'),
+		url('./assets/fonts/FoundersGroteskWeb-Bold.woff2') format('woff2');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: FoundersGrotesk;
+	src: url('./assets/fonts/FoundersGroteskWeb-BoldItalic.woff') format('woff'),
+		url('./assets/fonts/FoundersGroteskWeb-BoldItalic.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
 }
 
 body {
 	background-color: $BLACK;
 	font-family: FoundersGrotesk;
+	// cursor: url('./assets/lizard.svg'), auto;
 }

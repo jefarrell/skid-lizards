@@ -4,15 +4,30 @@
 $BLACK: #212121;
 $WHITE: #FFFFFF;
 
-$BLUE: #008DF9;
-$YELLOW: #FCC831;
-$GREEN: #38B996;
-$RED: #F15925;
+// Will Bryant colors
+// $BLUE: #008DF9;
+// $YELLOW: #FCC831;
+// $GREEN: #38B996;
+// $RED: #F15925;
+
+// Steve Harrington colors
+// $BLUE: #B5A9FF;
+// $YELLOW: #FCFBC6;
+// $GREEN: #8DFBE6;
+// $RED: #F69B80;
+
+// Steve Harrington colors v2
+$BLUE: #03BEE8;
+$YELLOW: #F1E329;
+$GREEN: #3BF063;
+$RED: #F65C98;
 
 /*
  * TEXT
  */
-$PRIM_HEADING: 48px;
+$XL-FONT: 48px;
+$L-FONT: 32px;
+$M-FONT: 24px;
 
 
 /*
@@ -26,3 +41,11 @@ $MEDIUM-SPACE: 24px;
  * SPEED
  */
 $MEDIAN: 100ms;
+
+
+/*
+ * BREAKPOINTS
+ */
+$MOBILE-BREAKPOINT: 320px;
+$BREAK-TO-MEDIUM: 800px;
+$BREAK-TO-LARGE: 1065px;

@@ -1,21 +1,29 @@
 .top-nav-wrapper {
 	display: flex;
 	justify-content: space-between;
-	background-color: $BLUE;
+	background-color: $GREEN;
 	padding: $LARGE-SPACE;
-	font-size: $MEDIUM-SPACE;
-	border-bottom: 10px solid $YELLOW;
+	font-size: $XL-FONT;
+	border-bottom: 10px solid $RED;
 
 	& a {
-		color: $WHITE;
+		color: $BLACK;
 		text-decoration: none;
 		transition: all $MEDIAN linear;
+		font-weight: 500;
+		//font-style: italic;
 
 		&:hover {
 			font-style: italic;
 			text-decoration: underline;
 			transition: all $MEDIAN linear;
 		}
+	}
+
+	@media screen 
+	    and (min-width: $MOBILE-BREAKPOINT)
+	    and (max-width: $BREAK-TO-MEDIUM){
+	    font-size: $M-FONT;
 	}
 }
 
