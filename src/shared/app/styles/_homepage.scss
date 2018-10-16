@@ -1,32 +1,71 @@
+.homepage-wrapper {
+	display: flex;
+	width: 100%;
+}
 
+.hompage-img-wrapper {
+	background-image: url('https://prismic-io.s3.amazonaws.com/bikepackdeathpact%2Fbe6258a0-a760-4a02-b5fd-eb1d7ae10509_bikepackdeathpact_route69-5394.jpg');
+	background-size: cover;
+	display: flex;
+	justify-content: flex-end;
+	width: 50%;
+	height: 100vh;
+}
+
+.homepage-blog-wrapper {
+	width: 50%;
+	height: 100vh;
+	overflow-y: scroll;
+	background-color: $GREEN;
+}
 
 .homepage-blogpost-wrapper {
-	margin: 20px $GUTTER;
 	height: 200px;
-	border: 5px solid $RED;
+	margin: $MEDIUM-SPACE;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	& > a {
-		text-decoration: none;
+	transition: all $MEDIAN linear;
+	
+	&:last-child {
+		color: $WHITE;
 	}
+
+	&:hover {
+		&:last-child {
+			font-style: italic;
+			text-decoration: underline;
+			color: $WHITE;
+		}
+	}
+}
+
+.homepage-info-wrapper {
+padding: 48px 24px;
+    color: black;
+    font-size: 18px;
+    line-height: 24px;
+    border-bottom: 10px solid $YELLOW;
+    background-image: url(https://prismic-io.s3.amazonaws.com/bikepackdeathpact%2F4afeabee-5ffb-44d3-b6fc-a2bfc3c1ef0d_image+%281%29.png);
+    background-position-x: -50px;
+}
+
+.homepage-blogpost-link {
+	text-decoration: none;
 }
 
 .homepage-blogpost-bg {
 	background-size: contain;
 	height: 200px;
-	width: 100%;
-	filter: blur(2px);
-	transition: filter 200ms linear;
-
-	&:hover {
-		filter: none;
-		transition: filter 200ms linear;
-	}
+	width: 50%;
 }
 
 .homepage-blogpost-title {
 	color: $WHITE;
 	font-size: $PRIM-HEADING;
-	position: absolute;
+	width: 50%;
+	padding-left: $MEDIUM-SPACE;
+
 }
+
+

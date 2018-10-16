@@ -1,12 +1,21 @@
 .top-nav-wrapper {
 	display: flex;
 	justify-content: space-between;
-	background-color: $GREEN;
-	padding: 32px;
+	background-color: $BLUE;
+	padding: $LARGE-SPACE;
+	font-size: $MEDIUM-SPACE;
+	border-bottom: 10px solid $YELLOW;
 
 	& a {
 		color: $WHITE;
 		text-decoration: none;
+		transition: all $MEDIAN linear;
+
+		&:hover {
+			font-style: italic;
+			text-decoration: underline;
+			transition: all $MEDIAN linear;
+		}
 	}
 }
 

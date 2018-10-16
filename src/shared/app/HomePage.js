@@ -35,23 +35,32 @@ class HomePage extends React.Component {
 
     return (
       <div className="homepage-wrapper">
-        {
-          data.results.map((post, index) => {
-            const offset = Math.floor(Math.random() * (200 - 1) + 1)
-            const blogStyle = {
-              backgroundImage: `url(${post.data.hero_image.url})`,
-              backgroundPositionX: offset
-            }
-            return (
-              <Link to={`page/${post.uid}`}>
-              <div key={index} className="homepage-blogpost-wrapper">
-                  <div className="homepage-blogpost-bg" style={blogStyle} />
-                  <p className="homepage-blogpost-title"> { post.data.title[0].text } </p>
-              </div>
-              </Link>
-            )
-          })
-        }
+        <div className="hompage-img-wrapper" />
+        <div className="homepage-blog-wrapper">
+          <div className="homepage-info-wrapper">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+          </div>
+          {
+            data.results.map((post, index) => {
+              const imgURL = post.data.hero_image.url
+              const offset = Math.floor(Math.random() * (200 - 1) + 1)
+              const blogStyle = {
+                backgroundImage: `url(${imgURL})`,
+                // backgroundPositionX: offset
+              }
+              return (
+                <Link to={`page/${post.uid}`} key={index} className="homepage-blogpost-link">
+                  <div key={imgURL} className="homepage-blogpost-wrapper">
+                    <div className="homepage-blogpost-bg" style={blogStyle} />
+                    <p className="homepage-blogpost-title"> { post.data.title[0].text } </p>
+                  </div>
+                </Link>
+              )
+            })
+          }
+        </div>
       </div>
     )
   }
