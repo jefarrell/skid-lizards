@@ -1,7 +1,3 @@
-
-
-
-
 const skull = 
 `
                    .ed"""" """$$$$be.
