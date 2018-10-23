@@ -31,16 +31,16 @@ class HomePage extends React.Component {
 
   render() {
     const data = this.props.PRISMIC_UNIVERSAL_DATA
-    console.log("data", data.results)
 
     return (
       <div className="homepage-wrapper">
         <div className="hompage-img-wrapper" />
         <div className="homepage-blog-wrapper">
           <div className="homepage-info-wrapper">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
           {
             data.results.map((post, index) => {
@@ -48,7 +48,6 @@ class HomePage extends React.Component {
               const offset = Math.floor(Math.random() * (200 - 1) + 1)
               const blogStyle = {
                 backgroundImage: `url(${imgURL})`,
-                // backgroundPositionX: offset
               }
               return (
                 <Link to={`page/${post.uid}`} key={index} className="homepage-blogpost-link">

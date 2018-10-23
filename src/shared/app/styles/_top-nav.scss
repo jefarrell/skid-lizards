@@ -11,7 +11,6 @@
 		text-decoration: none;
 		transition: all $MEDIAN linear;
 		font-weight: 500;
-		//font-style: italic;
 
 		&:hover {
 			font-style: italic;
@@ -29,4 +28,16 @@
 
 .top-nav-li {
 	list-style: none;
+}
+
+.top-nav-logo {
+	content:url('./assets/logo.svg');
+	width: 350px;
+
+	@media screen 
+	    and (min-width: $MOBILE-BREAKPOINT)
+	    and (max-width: $BREAK-TO-MEDIUM){
+	    width: 175px;
+	}
+
 }

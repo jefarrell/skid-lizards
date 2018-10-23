@@ -36,5 +36,10 @@
 body {
 	background-color: $BLACK;
 	font-family: FoundersGrotesk;
-	// cursor: url('./assets/lizard.svg'), auto;
+	
+	& a {
+		&:hover {
+			cursor: url('./assets/iguana.png') 20 20, auto;
+		}
+	}
 }

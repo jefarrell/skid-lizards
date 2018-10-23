@@ -23,7 +23,6 @@ class Page extends React.Component {
     if (this.props.PRISMIC_UNIVERSAL_DATA) {
       const prismicData = this.props.PRISMIC_UNIVERSAL_DATA;
       const { data } = prismicData
-      console.log("page data", data)
       const heroStyle = {
         backgroundImage: `url(${data.hero_image.url})`
       }

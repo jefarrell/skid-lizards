@@ -22,7 +22,9 @@ export const Layout = (props) => {
   return(
     <div className="app-container">
       <header className="top-nav-wrapper">
-        <Link to="/" className="top-nav-logo">SKID LIZARDS</Link>
+        <a href="/" alt="home" className="top-nav-logo-wrappe">
+          <img className="top-nav-logo" />
+        </a>
         <nav className="top-nav">
          <ul className="top-nav-ul"> { menu } </ul>
         </nav>
