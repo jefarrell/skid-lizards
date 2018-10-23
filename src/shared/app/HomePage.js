@@ -31,7 +31,21 @@ class HomePage extends React.Component {
 
   render() {
     const data = this.props.PRISMIC_UNIVERSAL_DATA
-
+    const links = data.results.map((post, index) => {
+        const imgURL = post.data.hero_image.url
+        const blogStyle = {
+          backgroundImage: `url(${imgURL})`,
+        }
+        return (
+          <a href={`page/${post.uid}`} key={index} className="homepage-blogpost-link">
+            <div key={imgURL} className="homepage-blogpost-wrapper">
+              <div className="homepage-blogpost-bg" style={blogStyle} />
+              <p className="homepage-blogpost-title"> { post.data.title[0].text } </p>
+            </div>
+          </a>
+        )
+      })
+    
     return (
       <div className="homepage-wrapper">
         <div className="hompage-img-wrapper" />
@@ -42,23 +56,7 @@ class HomePage extends React.Component {
             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
-          {
-            data.results.map((post, index) => {
-              const imgURL = post.data.hero_image.url
-              const offset = Math.floor(Math.random() * (200 - 1) + 1)
-              const blogStyle = {
-                backgroundImage: `url(${imgURL})`,
-              }
-              return (
-                <Link to={`page/${post.uid}`} key={index} className="homepage-blogpost-link">
-                  <div key={imgURL} className="homepage-blogpost-wrapper">
-                    <div className="homepage-blogpost-bg" style={blogStyle} />
-                    <p className="homepage-blogpost-title"> { post.data.title[0].text } </p>
-                  </div>
-                </Link>
-              )
-            })
-          }
+          { links }
         </div>
       </div>
     )
