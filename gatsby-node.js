@@ -14,6 +14,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postTemplate = require.resolve('./src/templates/post.jsx')
   const categoryTemplate = require.resolve('./src/templates/category.jsx')
+  const authorTemplate = require.resolve('./src/templates/author.jsx')
 
   const result = await wrapper(
     graphql(`
@@ -33,6 +34,15 @@ exports.createPages = async ({ graphql, actions }) => {
                     }
                   }
                 }
+                author {
+                  author {
+                    document {
+                      data {
+                        name
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -42,6 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
   )
 
   const categorySet = new Set()
+  const authorSet = new Set()
   const postsList = result.data.allPrismicPost.edges
 
   // Double check that the post has a category assigned
@@ -49,6 +60,12 @@ exports.createPages = async ({ graphql, actions }) => {
     if (edge.node.data.categories[0].category) {
       edge.node.data.categories.forEach(cat => {
         categorySet.add(cat.category.document[0].data.name)
+      })
+    }
+
+    if (edge.node.data.author[0].author) {
+      edge.node.data.author.forEach(auth => {
+        authorSet.add(auth.author.document[0].data.name)
       })
     }
 
@@ -71,6 +88,18 @@ exports.createPages = async ({ graphql, actions }) => {
       component: categoryTemplate,
       context: {
         category,
+      },
+    })
+  })
+
+  const authorList = Array.from(authorSet)
+
+  authorList.forEach(author => {
+    createPage({
+      path: `/authors/${_.kebabCase(author)}`,
+      component: authorTemplate,
+      context: {
+        author,
       },
     })
   })

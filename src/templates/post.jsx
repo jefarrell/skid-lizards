@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import styled from '@emotion/styled'
 import { Layout, Listing, Wrapper, SliceZone, Title, SEO, Header } from '../components'
 import Categories from '../components/Listing/Categories'
+import Authors from '../components/Listing/Authors'
 import website from '../../config/website'
 
 const Hero = styled.header`
@@ -31,6 +32,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
   if (data.categories[0].category) {
     categories = data.categories.map(c => c.category.document[0].data.name)
   }
+  let authors = false
+  if (data.author[0].author) {
+    authors = data.author.map(c => c.author.document[0].data.name)
+  }
   return (
     <Layout customSEO>
       <SEO
@@ -45,6 +50,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
           <Header />
           <Headline>
             {data.date} — {categories && <Categories categories={categories} />}
+            -— {authors && <Authors authors={authors} />} --
           </Headline>
           <h1>{data.title.text}</h1>
         </Wrapper>
@@ -94,21 +100,21 @@ export const pageQuery = graphql`
             }
           }
         }
+        author {
+          author {
+            document {
+              data {
+                name
+              }
+            }
+          }
+        }
         body {
           ... on PrismicPostBodyText {
             slice_type
             id
             primary {
               text {
-                html
-              }
-            }
-          }
-          ... on PrismicPostBodyCodeBlock {
-            slice_type
-            id
-            primary {
-              code_block {
                 html
               }
             }
