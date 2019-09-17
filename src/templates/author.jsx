@@ -1,31 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import styled from '@emotion/styled'
-import { Layout, Listing, Wrapper, Title, SEO, Header } from '../components'
+import { Listing, SEO, Header } from '../components'
 import website from '../../config/website'
-
-const Hero = styled.header`
-  background-color: ${props => props.theme.colors.primary};
-  padding-top: 1rem;
-  padding-bottom: 4rem;
-  h1 {
-    color: ${props => props.theme.colors.bg};
-  }
-`
-
-const Headline = styled.p`
-  font-family: 'Source Sans Pro', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial',
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  color: ${props => props.theme.colors.greyBlue};
-  font-size: 1.25rem;
-  a {
-    font-style: normal;
-    font-weight: normal;
-  }
-`
-
-const AuthWrapper = Wrapper.withComponent('main')
 
 const Author = ({
   pageContext: { author },
@@ -34,22 +11,22 @@ const Author = ({
   },
   location,
 }) => (
-  <Layout>
+  <div>
     <SEO title={`Author: ${author} | ${website.titleAlt}`} pathname={location.pathname} />
-    <Hero>
-      <Wrapper>
+    <div>
+      <div>
         <Header invert />
-        <Headline>Author</Headline>
+        <h1>Author</h1>
         <h1>{author}</h1>
-      </Wrapper>
-    </Hero>
-    <AuthWrapper id={website.skipNavId}>
-      <Title style={{ marginTop: '4rem' }}>
+      </div>
+    </div>
+    <div id={website.skipNavId}>
+      <h1 style={{ marginTop: '4rem' }}>
         {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "{author}"
-      </Title>
+      </h1>
       <Listing posts={nodes} />
-    </AuthWrapper>
-  </Layout>
+    </div>
+  </div>
 )
 
 export default Author

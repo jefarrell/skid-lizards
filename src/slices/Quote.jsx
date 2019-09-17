@@ -1,15 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 
-const BlockQuote = styled.blockquote`
-  max-width: ${props => props.theme.maxWidthText};
-`
 
 const Quote = ({ input }) => (
-  <BlockQuote>
+  <blockquote>
     <div dangerouslySetInnerHTML={{ __html: input.primary.quote.html }} />
-  </BlockQuote>
+  </blockquote>
 )
 
 export default Quote
