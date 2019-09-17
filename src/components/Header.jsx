@@ -4,9 +4,9 @@ import { Link } from 'gatsby'
 
 class Header extends Component {
   render() {
-    const { invert } = this.props
+    // const { invert } = this.props
     return (
-      <nav invert={invert}>
+      <nav>
         <Link to="/" aria-label="Back to Home">
           Frontend Developer
         </Link>

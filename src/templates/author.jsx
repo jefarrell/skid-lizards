@@ -15,7 +15,7 @@ const Author = ({
     <SEO title={`Author: ${author} | ${website.titleAlt}`} pathname={location.pathname} />
     <div>
       <div>
-        <Header invert />
+        <Header />
         <h1>Author</h1>
         <h1>{author}</h1>
       </div>
