@@ -21,7 +21,7 @@ const Category = ({
       </div>
     </div>
     <div id={website.skipNavId}>
-      <h1 style={{ marginTop: '4rem' }}>
+      <h1>
         {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "{category}"
       </h1>
       <Listing posts={nodes} />

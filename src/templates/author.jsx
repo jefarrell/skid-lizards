@@ -21,7 +21,7 @@ const Author = ({
       </div>
     </div>
     <div id={website.skipNavId}>
-      <h1 style={{ marginTop: '4rem' }}>
+      <h1>
         {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} by  "{author}"
       </h1>
       <Listing posts={nodes} />

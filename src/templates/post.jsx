@@ -38,7 +38,7 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       </div>
       <div id={website.skipNavId}>
         <SliceZone allSlices={data.body} />
-        <h1 style={{ marginTop: '4rem' }}>Recent posts</h1>
+        <h1>Recent posts</h1>
         <Listing posts={posts.nodes} />
       </div>
     </Layout>

@@ -25,10 +25,10 @@ class Index extends Component {
             </div>
           </div>
         </div>
-        <div id={website.skipNavId} style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
-          <h1 style={{ marginTop: '4rem' }}>Recent posts</h1>
+        <div id={website.skipNavId}>
+          <h1>Recent posts</h1>
           <Listing posts={posts.nodes} />
-          <h1 style={{ marginTop: '8rem' }}>Recent projects</h1>
+          <h1>Recent projects</h1>
           <ul>
             {projects.nodes.map(project => (
               <li key={project.primary.label.text}>
