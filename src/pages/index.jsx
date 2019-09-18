@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { Listing } from '../components'
 import website from '../../config/website'
+import '../styles/index.scss';
 
 class Index extends Component {
   render() {
