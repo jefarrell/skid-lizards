@@ -8,7 +8,7 @@ class Header extends Component {
     return (
       <nav>
         <Link to="/" aria-label="Back to Home">
-          Frontend Developer
+          Home
         </Link>
       </nav>
     )

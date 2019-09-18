@@ -22,7 +22,7 @@ const Author = ({
     </div>
     <div id={website.skipNavId}>
       <h1 style={{ marginTop: '4rem' }}>
-        {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} {totalCount === 1 ? 'was' : 'were'} tagged with "{author}"
+        {totalCount} {totalCount === 1 ? 'Post' : 'Posts'} by  "{author}"
       </h1>
       <Listing posts={nodes} />
     </div>
