@@ -23,17 +23,6 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               id
               uid
-              data {
-                tags {
-                  tag {
-                    document {
-                      data {
-                        name
-                      }
-                    }
-                  }
-                }
-              }
             }
           }
         }
@@ -44,15 +33,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagSet = new Set();
   const postsList = result.data.allPrismicPost.edges;
 
-  // Double check that the post has a category assigned
   postsList.forEach(edge => {
 
 
-    if (edge.node.data.tags[0].tag) {
-      edge.node.data.tags.forEach(tag => {
-        tagSet.add(tag.tag.document[0].data.name)
-      });
-    }
+    // if (edge.node.data.tags[0].tag) {
+    //   edge.node.data.tags.forEach(tag => {
+    //     tagSet.add(tag.tag.document[0].data.name)
+    //   });
+    // }
 
 
     // The uid you assigned in Prismic is the slug!
@@ -66,15 +54,15 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  const tagList = Array.from(tagSet);
+  // const tagList = Array.from(tagSet);
 
-  tagList.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}`,
-      component: tagTemplate,
-      context: {
-        tag,
-      },
-    });
-  });
+  // tagList.forEach(tag => {
+  //   createPage({
+  //     path: `/tags/${_.kebabCase(tag)}`,
+  //     component: tagTemplate,
+  //     context: {
+  //       tag,
+  //     },
+  //   });
+  // });
 }

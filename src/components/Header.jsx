@@ -4,8 +4,6 @@ import kebabCase from 'lodash/kebabCase'
 
 const PureHeader = ({children, data}) => {
   const tagArr = data.tags;
-  const catArr = data.categories;
-  const musicPost = data.musicPost;
   const uidArr = data.allUIDs.nodes;
   const randomUID = uidArr[Math.floor(Math.random()*uidArr.length-1)]
 
@@ -82,19 +80,6 @@ const PureHeader = ({children, data}) => {
           <div className='header__nav__categories'>
             <span className='header__nav__categories--title'>Category</span>
             <ul className='header__nav__categories--list'>
-            {
-                catArr.edges.map((c, i) => {
-                  const cat = c.node.data.name
-                  return (
-                    <li
-                      key={`${cat}-${i}`}
-                      className='header__nav__category'
-                    >
-                      <Link to={`/categories/${kebabCase(cat)}`}>{cat}</Link>
-                    </li>
-                  )
-                })
-              }
             </ul>
           </div> 
         </div>

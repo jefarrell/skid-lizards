@@ -57,7 +57,6 @@ export const pageQuery = graphql`
       nodes {
         uid
         data {
-          is_featured_post
           title {
             text
           }
@@ -68,41 +67,11 @@ export const pageQuery = graphql`
             text
           }
           date(formatString: "DD.MM.YYYY")
-          categories {
-            category {
-              document {
-                data {
-                  name
-                }
-              }
-            }
-          }
           tags {
             tag {
               document {
                 data {
                   name
-                }
-              }
-            }
-          }
-          author {
-            author {
-              document {
-                data {
-                  name
-                }
-              }
-            }
-          }
-          photographer {
-            photographer {
-              document {
-                data {
-                  name
-                  photographer_link {
-                    url
-                  }
                 }
               }
             }

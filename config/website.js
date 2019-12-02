@@ -4,7 +4,7 @@ module.exports = {
   titleAlt: 'Skid Lizards', // Title for JSONLD
   description: 'Friends with bikes and jobs',
   headline: 'Bike gang', // Headline for schema.org JSONLD
-  url: 'skidlizards.com', // Domain of your site. No trailing slash!
+  url: 'http://skidlizards.com', // Domain of your site. No trailing slash!
   siteLanguage: 'en', // Language Tag on <html> element
   logo: '/logos/logo-1024.png', // Used for SEO
   ogLanguage: 'en_US', // Facebook Language
