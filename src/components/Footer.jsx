@@ -24,9 +24,6 @@ class Footer extends Component {
           <a className='footer__contact--text' href={`mailto:${data.contact_email.text}`}>{ data.contact_text.text }</a>
           <a className='footer__follow--text' href={data.follow_link.text} target="_blank">{ data.follow_text.text }</a>
         </div>
-        <div className='footer__center'>
-          <span className='footer__center--text'>{ data.newsletter_text.text }</span>
-        </div>
         <div className='footer__right' onClick={this.scrollTop}>
           <span className='footer__top--text'>{ data.top_text.text }</span>
           <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 79 78">

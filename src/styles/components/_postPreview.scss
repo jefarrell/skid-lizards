@@ -44,7 +44,7 @@
 
 .preview__title {
   @include animated-underline;
-  font-family: $Windsor;
+  font-family: $Times;
   margin: $spacing-20 0 $spacing-40 0;
   position: relative; 
   word-break: break-word;
@@ -86,14 +86,14 @@
 
 .preview__photog,
 .preview__author {
-  font-family: $Values;
+  font-family: $Helvetica;
   font-size: $font-category-size;
 }
 
 .preview__author {
   &--title {
     text-transform: uppercase;
-    font-family: $Founders;
+    font-family: $Helvetica;
   }
 }
 

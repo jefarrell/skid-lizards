@@ -12,7 +12,7 @@ const PureLayout = ({ children, data, customSEO }) => (
     <div className='layout__wrap'>
       <SkipNavLink />
       {children}
-      <Footer data={data.footer.data} />
+      {/* <Footer data={data.footer.data} /> */}
       <Main />
     </div>
 );
@@ -38,9 +38,6 @@ class Layout extends Component {
                   text
                 }
                 follow_link {
-                  text
-                }
-                newsletter_text {
                   text
                 }
                 top_text {

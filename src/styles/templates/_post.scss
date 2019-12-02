@@ -51,7 +51,7 @@
 
   &__title {
     @include text-size($font-heading2-size-mobile, $font-heading2-size);
-    font-family: $Windsor;
+    font-family: $Times;
     text-transform: uppercase;
     margin: $spacing-20 0 $spacing-40 0;
     position: relative;
@@ -74,7 +74,7 @@
 
   &__subtitle {
     @include text-size($font-heading4-size-mobile, $font-desc-size);
-    font-family: $Values;
+    font-family: $Helvetica;
     margin: 0 0 $spacing-20 0; 
 
     @include bp-min(m) {
@@ -84,7 +84,7 @@
 
   &__author,
   &__photog {
-    font-family: $Values;
+    font-family: $Helvetica;
 
     &--wrap {
       @include bp-min(m) {
@@ -109,7 +109,7 @@
   display: flex;
   flex-direction: row-reverse;
   padding: $spacing-75 $spacing-20 0 $spacing-20;
-  font-family: $Garamond;
+  font-family: $Helvetica;
 
   @include bp-min(m) {
     padding: $spacing-75 $spacing-150 0 0;
@@ -140,13 +140,13 @@
     background-color: $black;
     color: $white;
     text-transform: uppercase;
-    font-family: $Founders;
+    font-family: $Helvetica;
     text-align: center;
   }
 
   &__bio {
     font-size: $font-menu-size;
-    font-family: $Founders;
+    font-family: $Helvetica;
     padding: $spacing-75 $spacing-40 $spacing-40 $spacing-40;
 
     a {

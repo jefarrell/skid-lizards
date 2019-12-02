@@ -13,17 +13,8 @@ import Main from '../utils/app';
 import '../styles/index.scss';
 import '../utils/app.js';
 
-const Index = ( {data: { homepage, posts, footer, externalLinks }} = props) => {
-
-  // posts.nodes.forEach((post) => {
-  //   if (
-  //     post.uid !== featuredPost.nodes[0].uid && 
-  //     post.uid !== musicPost.edges[0].node.uid && 
-  //     post.uid !== homepage.data.bottom_block_post.uid
-  //     ) {
-  //     remainingPosts.push(post);
-  //   }
-  // });
+//eslint-disable-next-line
+const Index = ( {data: { homepage, posts, footer }} = props) => {
 
   return (
     <>
@@ -64,6 +55,8 @@ Index.propTypes = {
   }).isRequired,
 }
 
+
+
 export const pageQuery = graphql`
   query IndexQuery {
     homepage: prismicHomepage {
@@ -95,21 +88,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    externalLinks: allPrismicExternalLink(filter: {}, limit: 6) {
-      nodes {
-        data {
-          link_image {
-            url
-          }
-          link_title {
-            text
-          }
-          link_url {
-            url
-          }
-        }
-      }
-    }
     posts: allPrismicPost(sort: { fields: [data___date], order: DESC }, limit: 10) {
       nodes {
         uid
@@ -124,17 +102,83 @@ export const pageQuery = graphql`
             text
           }
           date(formatString: "DD.MM.YYYY")
-          tags {
-            tag {
-              document {
-                data {
-                  name
-                }
-              }
-            }
-          }
         }
       }
     }
   }
 `
+
+// export const pageQuery = graphql`
+//   query IndexQuery {
+//     homepage: prismicHomepage {
+//       data {
+//         title {
+//           text
+//         }
+//       }
+//     }
+//     footer: prismicFooter {
+//       data {
+//         contact_text {
+//           text
+//         }
+//         contact_email {
+//           text
+//         }
+//         copyright_text {
+//           text
+//         }
+//         follow_text {
+//           text
+//         }
+//         follow_link {
+//           text
+//         }
+//         top_text {
+//           text
+//         }
+//       }
+//     }
+//     externalLinks: allPrismicExternalLink(filter: {}, limit: 6) {
+//       nodes {
+//         data {
+//           link_image {
+//             url
+//           }
+//           link_title {
+//             text
+//           }
+//           link_url {
+//             url
+//           }
+//         }
+//       }
+//     }
+//     posts: allPrismicPost(sort: { fields: [data___date], order: DESC }, limit: 10) {
+//       nodes {
+//         uid
+//         data {
+//           title {
+//             text
+//           }
+//           main_image {
+//             url
+//           }
+//           sub_title {
+//             text
+//           }
+//           date(formatString: "DD.MM.YYYY")
+//           tags {
+//             tag {
+//               document {
+//                 data {
+//                   name
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

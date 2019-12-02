@@ -9,7 +9,7 @@
   }
 
   &__subtitle {
-    font-family: $Values;
+    font-family: $Helvetica;
     @include text-size($font-desc-size-mobile, $font-desc-size);
   }
 }

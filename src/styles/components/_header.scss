@@ -37,7 +37,7 @@ $menu-height-open: 280px;
 .header__nav__expanded {
   @include text-size($font-menu-size-mobile, $font-menu-size);
   transition: opacity 500ms ease;
-  font-family: $Founders;
+  font-family: $Helvetica;
 
   a {
     text-decoration: none;
@@ -200,7 +200,7 @@ $menu-height-open: 280px;
   padding-right: $spacing-40;
 
   &--title {
-    font-family: $Founders;
+    font-family: $Helvetica;
     font-size: $font-category-size;
     text-transform: uppercase;
   }
@@ -211,7 +211,7 @@ $menu-height-open: 280px;
 }
 
 .header__nav__tag {
-  font-family: $Founders;
+  font-family: $Helvetica;
   font-size: $font-menu-size;
   text-transform: uppercase;
   padding-bottom: $spacing-12;
@@ -238,7 +238,7 @@ $menu-height-open: 280px;
 }
 
 .header__nav__category {
-  font-family: $Values;
+  font-family: $Helvetica;
   font-size: $font-category-size-mobile;
   text-transform: uppercase;
   display: inline-block;

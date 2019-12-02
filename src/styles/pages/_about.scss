@@ -5,7 +5,7 @@
     &__intro {
         &__text {
             @include text-size($font-desc-size-mobile, $font-desc-size);
-            font-family: $Values;
+            font-family: $Helvetica;
             color: $white;
             background: rgb(0,0,0);
             background: linear-gradient(
@@ -38,7 +38,7 @@
         background-color: #cef8bb;
         color: $white;
         text-transform: uppercase;
-        font-family: $Founders;
+        font-family: $Helvetica;
         text-align: center;
     }
 }
@@ -62,7 +62,7 @@
 
     &__title {
         font-size: $font-desc-size-mobile;
-        font-family: $Values;
+        font-family: $Helvetica;
         text-transform: uppercase;
         position: absolute;
         transform: rotate(90deg);
@@ -102,7 +102,7 @@
 
     &__staff {
         align-self: flex-end;
-        font-family: $Values;
+        font-family: $Helvetica;
         display: flex;
         position: relative;
         padding-bottom: $spacing-60;
@@ -137,7 +137,7 @@
         &--text {
             p {
                 padding-bottom: $spacing-20;
-                font-family: $Founders;
+                font-family: $Helvetica;
             }
         }
     }

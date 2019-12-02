@@ -23,9 +23,6 @@ class About extends Component {
               <div className='about__info__contact'>
                 <span className='about__info__title -contact'>Contact</span>
                 <div className='about_info__contact--wrap'>
-                  <p className='about__info__contact--text' 
-                    dangerouslySetInnerHTML={{ __html: aboutpage.data.contact.html }} 
-                  />
                   <p className='about__info__email--text' 
                     dangerouslySetInnerHTML={{ __html: aboutpage.data.email.html }}
                   />
@@ -59,9 +56,6 @@ About.propTypes = {
         content: PropTypes.shape({
           html: PropTypes.string.isRequired,
         }),
-        contact: PropTypes.shape({
-          html: PropTypes.string.isRequired,
-        }),
         email: PropTypes.shape({
           html: PropTypes.string.isRequired,
         }),
@@ -78,9 +72,6 @@ export const pageQuery = graphql`
     aboutpage: prismicAboutPage {
       data {
         about_content {
-          html
-        }
-        contact {
           html
         }
         email {

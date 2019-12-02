@@ -43,15 +43,13 @@ Tag.propTypes = {
   location: PropTypes.object.isRequired,
 }
 
+
+
+
 export const pageQuery = graphql`
   query TagPage($tag: String!) {
     posts: allPrismicPost(
       sort: { fields: [data___date], order: DESC }
-      filter: {
-        data: {
-          tags: { elemMatch: { tag: { document: { elemMatch: { data: { name: { eq: $tag } } } } } } }
-        }
-      }
     ) {
       totalCount
       nodes {
@@ -67,17 +65,47 @@ export const pageQuery = graphql`
             text
           }
           date(formatString: "DD.MM.YYYY")
-          tags {
-            tag {
-              document {
-                data {
-                  name
-                }
-              }
-            }
-          }
         }
       }
     }
   }
 `
+
+// export const pageQuery = graphql`
+//   query TagPage($tag: String!) {
+//     posts: allPrismicPost(
+//       sort: { fields: [data___date], order: DESC }
+//       filter: {
+//         data: {
+//           tags: { elemMatch: { tag: { document: { elemMatch: { data: { name: { eq: $tag } } } } } } }
+//         }
+//       }
+//     ) {
+//       totalCount
+//       nodes {
+//         uid
+//         data {
+//           title {
+//             text
+//           }
+//           main_image {
+//             url
+//           }
+//           sub_title {
+//             text
+//           }
+//           date(formatString: "DD.MM.YYYY")
+//           tags {
+//             tag {
+//               document {
+//                 data {
+//                   name
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

@@ -54,7 +54,7 @@
 
     &--text {
       @include text-size($font-newsletter-size-mobile, $font-newsletter-size);
-      font-family: $Values;
+      font-family: $Helvetica;
     }
   }
 
@@ -76,7 +76,7 @@
 
   &__left,
   &__right {
-    font-family: $Founders;
+    font-family: $Helvetica;
   }
 
   &__left,

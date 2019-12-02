@@ -3,7 +3,7 @@ $scaleLarge: 1.05;
 .slice__quote {
   @include slice-spacing();
   @include text-size($font-heading4-size-mobile, $font-heading4-size);
-  font-family: $Values;
+  font-family: $Helvetica;
   transform:  scale($scaleLarge);
   line-height: 1.5em;
   text-transform: uppercase;

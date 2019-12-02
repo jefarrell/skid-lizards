@@ -7,7 +7,7 @@
 
 .home__title {
   @include text-size($font-heading1-size-mobile, $font-heading1-size);
-  font-family: $Founders;
+  font-family: $Helvetica;
   display: none;
 
   @include bp-min(m) {
@@ -60,7 +60,7 @@
       @include animated-underline($white);
       color: $white;
       text-decoration: none;
-      font-family: $Founders;
+      font-family: $Helvetica;
       font-size: $font-menu-size;
       position: absolute;
       right: 0;
