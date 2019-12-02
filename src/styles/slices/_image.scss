@@ -1,0 +1,28 @@
+.slice__img {
+  @include slice-spacing();
+  width: 100%;
+  margin: 0 0 $spacing-75 0;
+  overflow: hidden;
+
+  @include bp-min(m) {
+    margin: $spacing-75 0;
+    width: 75%;
+  }
+
+  &--img {
+    transform: scale(1.05);
+    transition: transform 1000ms ease;
+
+    &.-active {
+      transform: scale(1);
+    }
+  }
+
+  &--caption {
+    display: block;
+    font-size: $font-category-size;
+    padding-top: $spacing-12;
+    font-family: $Founders;
+    line-height: 1.1;
+  }
+}

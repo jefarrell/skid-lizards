@@ -1,0 +1,264 @@
+$menu-height-closed: 110px;
+$menu-height-open: 280px;
+
+.header__nav__wrap {
+  top: 0;
+  z-index: 100;
+  height: $menu-height-closed;
+  transition: height 500ms ease, padding 500ms ease, background 500ms ease;
+  width: 100vw;
+  position: sticky;
+  overflow: hidden;
+  background: linear-gradient(180deg, 
+    rgba(255,255,255,1) 0%, 
+    rgba(255,255,255,1) 4%, 
+    rgba(255,255,255,1) 85%, 
+    rgba(255,255,255,1) 100%
+  );
+
+  &.-open {
+    height: $menu-height-open;
+    background: linear-gradient(180deg, 
+    rgba(0,0,0,1) 0%, 
+    rgba(0,0,0,1) 4%, 
+    rgba(117,126,131,1) 85%, 
+    rgba(117,126,131,1) 100%
+  );
+    transition: height 500ms ease, padding 500ms ease, background 500ms ease;
+  }
+
+  @include bp-min(m) {
+    position: sticky;
+  }
+}
+
+
+.header__nav,
+.header__nav__expanded {
+  @include text-size($font-menu-size-mobile, $font-menu-size);
+  transition: opacity 500ms ease;
+  font-family: $Founders;
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &.-open {
+    transition: opacity 500ms ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// Collapsed menu
+.header__nav {
+  opacity: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: $spacing-40 $spacing-20;
+  overflow: visible;
+  pointer-events: initial;
+
+  @include bp-min(m) {
+    padding: $spacing-40;
+  }
+
+  // &__latest,
+  // &__about {
+  //   @include animated-underline();
+  // }
+
+  a {
+    color: $black;
+    
+    &:first-child {
+      width: 60px;
+      @include bp-min(m) {
+        width: 150px;
+      }
+    }
+  }
+
+  &.-open {
+    opacity: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}
+
+.header__nav__title {
+  @include text-size(30px, $font-heading4-size);
+  border: none;
+  background: none;
+
+  span {
+    transition: padding-right 500ms ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    span {
+      &.-offset {
+        padding-right: $spacing-20;
+      }
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Expanded menu
+.header__nav__expanded {
+  opacity: 0;
+  height: 0;
+  color: $white;
+  padding: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  a, button {
+    color: $accent-blue;
+  }
+
+  &.-open {
+      opacity: 1;
+      height: auto;
+      padding: $spacing-40 $spacing-20;
+      overflow: visible;
+      pointer-events: initial;
+
+      @include bp-min(m) {
+        padding: $spacing-40;
+      }
+  }
+
+  &--about {
+    border-bottom: 1px solid #78ecf0;
+    padding-bottom: 4px;
+  }
+
+  &--links {
+    display: flex;
+    flex-direction: column;
+    width: 60px;
+    @include bp-min(m) {
+      width: 150px;
+    }
+
+    a {
+      border-bottom: 1px solid $accent-blue;
+      padding-bottom: 4px;
+      margin-bottom: $spacing-40;
+    }
+  }
+
+  &--title {
+    @include text-size(30px, $font-heading4-size);
+    border: none;
+    background: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.header__nav__expanded--test {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.header__nav__expanded--groupings {
+  display: flex;
+  position: absolute;
+  transform: translate(100px, -175px);
+  
+  @include bp-min(m) {
+    transform: translate(250px, -140px);
+  }
+  
+}
+
+.header__nav__tags {
+  padding-right: $spacing-40;
+
+  &--title {
+    font-family: $Founders;
+    font-size: $font-category-size;
+    text-transform: uppercase;
+  }
+
+  &--list {
+    padding-top: $spacing-12;
+  }
+}
+
+.header__nav__tag {
+  font-family: $Founders;
+  font-size: $font-menu-size;
+  text-transform: uppercase;
+  padding-bottom: $spacing-12;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.header__nav__categories {
+  &--title {
+    font-size: $font-category-size;
+    text-transform: uppercase;
+  }
+
+  &--list {
+    max-width: 125px;
+  
+    @include bp-min(m) {
+      max-width: 350px;
+    }
+  }
+}
+
+.header__nav__category {
+  font-family: $Values;
+  font-size: $font-category-size-mobile;
+  text-transform: uppercase;
+  display: inline-block;
+  padding-right: 5px;
+  padding-top: $spacing-12;
+
+  @include bp-min(m) {
+    font-size: $font-menu-size;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:after {
+    content: ",";
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+}

@@ -1,12 +1,12 @@
 require('dotenv').config({
   path: `.env`,
-})
+});
 
-const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
+const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer');
 
-const website = require('./config/website')
+const website = require('./config/website');
 
-const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix
+const pathPrefix = website.pathPrefix === '/' ? '' : website.pathPrefix;
 
 module.exports = {
   /* General Information */
@@ -32,23 +32,17 @@ module.exports = {
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: 'skidlizards',
+        repositoryName: 'skid-lizards',
         accessToken: `${process.env.API_KEY}`,
         // Get the correct URLs in blog posts
         linkResolver: () => post => `/${post.uid}`,
         // PrismJS highlighting for labels and slices
         htmlSerializer: () => prismicHtmlSerializer,
-      },
+      }
     },
     'gatsby-plugin-lodash',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'config/typography.js',
-      },
-    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

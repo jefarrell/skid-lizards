@@ -1,0 +1,13 @@
+.listing__shared {
+  font-family: $Founders;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 3px 12px 6px 12px;
+  font-size: $font-menu-size;
+  background-color: $default-theme-accent-gold;
+
+  a {
+    text-decoration: none;
+    color: $white;
+  }
+}

@@ -1,7 +1,6 @@
-import Categories from './Categories'
-import Listing from './Listing'
-import ListItem from './ListItem'
+import Tags from './Tags';
+import Listing from './Listing';
+import ListItem from './ListItem';
+export { ListItem, Tags }
 
-export { Categories, ListItem }
-
-export default Listing
+export default Listing;

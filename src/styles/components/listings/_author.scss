@@ -1,0 +1,13 @@
+.listing__author {
+    @include animated-underline($blue);
+    display: inline-block;
+    position: relative;
+
+    a {
+        @include text-size($font-menu-size-mobile, $font-body-size);
+        font-family: $Founders;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: blue;
+    }
+}

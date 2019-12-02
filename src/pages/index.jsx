@@ -1,48 +1,50 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import { Listing } from '../components'
-import website from '../../config/website'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { graphql, Link } from 'gatsby';
+import { 
+  PostPreview, 
+  Footer, 
+  Header, 
+  ExternalLink,
+} from '../components';
+import { isMobile } from '../utils/constants';
+import website from '../../config/website';
+import Main from '../utils/app';
 import '../styles/index.scss';
+import '../utils/app.js';
 
-class Index extends Component {
-  render() {
-    const {
-      data: { homepage, social, posts, projects },
-    } = this.props
-    return (
-      <div>
-        <div>
-          <div>
-            <h1>{homepage.data.title.text}</h1>
-            <h1 dangerouslySetInnerHTML={{ __html: homepage.data.content.html }} />
-            <div>
-              {social.nodes.map((s, index) => (
-                <li data-name={`social-entry-${index}`} key={s.primary.label.text}>
-                  <a href={s.primary.link.url}>{s.primary.label.text}</a>
-                </li>
-              ))}
+const Index = ( {data: { homepage, posts, footer, externalLinks }} = props) => {
+
+  // posts.nodes.forEach((post) => {
+  //   if (
+  //     post.uid !== featuredPost.nodes[0].uid && 
+  //     post.uid !== musicPost.edges[0].node.uid && 
+  //     post.uid !== homepage.data.bottom_block_post.uid
+  //     ) {
+  //     remainingPosts.push(post);
+  //   }
+  // });
+
+  return (
+    <>
+      <div className='content'>
+        <div id={website.skipNavId}>
+        <Header />
+          <div className='home__content__wrap'>
+            <div className='home__content__wrap--left'>
+              <PostPreview posts={posts} />
             </div>
           </div>
         </div>
-        <div id={website.skipNavId}>
-          <h1>Recent posts</h1>
-          <Listing posts={posts.nodes} />
-          <h1>Recent projects</h1>
-          <ul>
-            {projects.nodes.map(project => (
-              <li key={project.primary.label.text}>
-                <a href={project.primary.link.url}>{project.primary.label.text}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
+        
+        <Main />
       </div>
-    )
-  }
+      <Footer data={footer.data}/>
+    </>
+  )
 }
 
-export default Index
+export default Index;
 
 Index.propTypes = {
   data: PropTypes.shape({
@@ -56,13 +58,7 @@ Index.propTypes = {
         }),
       }),
     }),
-    social: PropTypes.shape({
-      nodes: PropTypes.array.isRequired,
-    }),
     posts: PropTypes.shape({
-      nodes: PropTypes.array.isRequired,
-    }),
-    projects: PropTypes.shape({
       nodes: PropTypes.array.isRequired,
     }),
   }).isRequired,
@@ -75,51 +71,67 @@ export const pageQuery = graphql`
         title {
           text
         }
-        content {
-          html
+      }
+    }
+    footer: prismicFooter {
+      data {
+        contact_text {
+          text
+        }
+        contact_email {
+          text
+        }
+        copyright_text {
+          text
+        }
+        follow_text {
+          text
+        }
+        follow_link {
+          text
+        }
+        top_text {
+          text
         }
       }
     }
-    social: allPrismicHeroLinksBodyLinkItem {
+    externalLinks: allPrismicExternalLink(filter: {}, limit: 6) {
       nodes {
-        primary {
-          label {
+        data {
+          link_image {
+            url
+          }
+          link_title {
             text
           }
-          link {
+          link_url {
             url
           }
         }
       }
     }
-    posts: allPrismicPost(sort: { fields: [data___date], order: DESC }) {
+    posts: allPrismicPost(sort: { fields: [data___date], order: DESC }, limit: 10) {
       nodes {
         uid
         data {
           title {
             text
           }
+          main_image {
+            url
+          }
+          sub_title {
+            text
+          }
           date(formatString: "DD.MM.YYYY")
-          categories {
-            category {
+          tags {
+            tag {
               document {
                 data {
                   name
                 }
               }
             }
-          }
-        }
-      }
-    }
-    projects: allPrismicProjectsBodyLinkItem {
-      nodes {
-        primary {
-          label {
-            text
-          }
-          link {
-            url
           }
         }
       }

@@ -1,0 +1,26 @@
+$scaleLarge: 1.05;
+
+.slice__quote {
+  @include slice-spacing();
+  @include text-size($font-heading4-size-mobile, $font-heading4-size);
+  font-family: $Values;
+  transform:  scale($scaleLarge);
+  line-height: 1.5em;
+  text-transform: uppercase;
+  margin: 0 0 $spacing-40 0;
+  transition: transform 1000ms ease;
+  
+  &.-active {
+    transform: rotate(-10deg) scale(1); 
+  }
+
+  @include bp-min(m) {
+    margin-top: $spacing-75;
+    margin-bottom: $spacing-150;
+    transform: scale($scaleLarge);
+    
+    &.-active {
+      transform: rotate(-10deg) scale(1); 
+    }
+  }
+}

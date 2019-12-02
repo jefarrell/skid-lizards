@@ -1,26 +1,21 @@
 /* eslint no-unused-expressions: 0 */
 /* eslint react/destructuring-assignment: 0 */
 
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { StaticQuery, graphql } from 'gatsby'
-import Footer from './Footer'
-import SEO from './SEO'
-import SkipNavLink from './SkipNavLink'
-
-import 'typeface-lora'
-import 'typeface-source-sans-pro'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { StaticQuery, graphql } from 'gatsby';
+import Footer from './Footer';
+import SkipNavLink from './SkipNavLink';
+import Main from '../utils/app';
 
 const PureLayout = ({ children, data, customSEO }) => (
-    <>
+    <div className='layout__wrap'>
       <SkipNavLink />
-      {!customSEO && <SEO />}
       {children}
-      <Footer>
-        <div dangerouslySetInnerHTML={{ __html: data.prismicHomepage.data.footer.html }} />
-      </Footer>
-    </>
-)
+      <Footer data={data.footer.data} />
+      <Main />
+    </div>
+);
 
 class Layout extends Component {
   render() {
@@ -28,10 +23,28 @@ class Layout extends Component {
       <StaticQuery
         query={graphql`
           query LayoutQuery {
-            prismicHomepage {
+            footer: prismicFooter {
               data {
-                footer {
-                  html
+                contact_text {
+                  text
+                }
+                contact_email {
+                  text
+                }
+                copyright_text {
+                  text
+                }
+                follow_text {
+                  text
+                }
+                follow_link {
+                  text
+                }
+                newsletter_text {
+                  text
+                }
+                top_text {
+                  text
                 }
               }
             }
@@ -43,11 +56,11 @@ class Layout extends Component {
           </PureLayout>
         )}
       />
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;
 
 Layout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
@@ -56,9 +69,4 @@ Layout.propTypes = {
 PureLayout.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.node]).isRequired,
   data: PropTypes.object.isRequired,
-  customSEO: PropTypes.bool,
-}
-
-PureLayout.defaultProps = {
-  customSEO: false,
 }

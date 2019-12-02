@@ -1,20 +1,19 @@
-const _ = require('lodash')
+const _ = require('lodash');
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
 const wrapper = promise =>
   promise.then(result => {
     if (result.errors) {
-      throw result.errors
+      throw result.errors;
     }
-    return result
-  })
+    return result;
+  });
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const postTemplate = require.resolve('./src/templates/post.jsx')
-  const categoryTemplate = require.resolve('./src/templates/category.jsx')
-  const authorTemplate = require.resolve('./src/templates/author.jsx')
+  const postTemplate = require.resolve('./src/templates/post.jsx');
+  const tagTemplate = require.resolve('./src/templates/tag.jsx');
 
   const result = await wrapper(
     graphql(`
@@ -25,17 +24,8 @@ exports.createPages = async ({ graphql, actions }) => {
               id
               uid
               data {
-                categories {
-                  category {
-                    document {
-                      data {
-                        name
-                      }
-                    }
-                  }
-                }
-                author {
-                  author {
+                tags {
+                  tag {
                     document {
                       data {
                         name
@@ -51,23 +41,19 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   )
 
-  const categorySet = new Set()
-  const authorSet = new Set()
-  const postsList = result.data.allPrismicPost.edges
+  const tagSet = new Set();
+  const postsList = result.data.allPrismicPost.edges;
 
   // Double check that the post has a category assigned
   postsList.forEach(edge => {
-    if (edge.node.data.categories[0].category) {
-      edge.node.data.categories.forEach(cat => {
-        categorySet.add(cat.category.document[0].data.name)
-      })
+
+
+    if (edge.node.data.tags[0].tag) {
+      edge.node.data.tags.forEach(tag => {
+        tagSet.add(tag.tag.document[0].data.name)
+      });
     }
 
-    if (edge.node.data.author[0].author) {
-      edge.node.data.author.forEach(auth => {
-        authorSet.add(auth.author.document[0].data.name)
-      })
-    }
 
     // The uid you assigned in Prismic is the slug!
     createPage({
@@ -77,30 +63,18 @@ exports.createPages = async ({ graphql, actions }) => {
         // Pass the unique ID (uid) through context so the template can filter by it
         uid: edge.node.uid,
       },
-    })
-  })
+    });
+  });
 
-  const categoryList = Array.from(categorySet)
+  const tagList = Array.from(tagSet);
 
-  categoryList.forEach(category => {
+  tagList.forEach(tag => {
     createPage({
-      path: `/categories/${_.kebabCase(category)}`,
-      component: categoryTemplate,
+      path: `/tags/${_.kebabCase(tag)}`,
+      component: tagTemplate,
       context: {
-        category,
+        tag,
       },
-    })
-  })
-
-  const authorList = Array.from(authorSet)
-
-  authorList.forEach(author => {
-    createPage({
-      path: `/authors/${_.kebabCase(author)}`,
-      component: authorTemplate,
-      context: {
-        author,
-      },
-    })
-  })
+    });
+  });
 }

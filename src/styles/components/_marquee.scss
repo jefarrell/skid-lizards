@@ -1,0 +1,9 @@
+.ticker {
+  background-image: url('./assets/cloud.jpg');
+  background-size: cover;
+  color: $black;
+  font-family: $Values;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-top: $spacing-12;
+}

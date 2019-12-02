@@ -1,0 +1,10 @@
+.listing__photographer {
+    @include animated-underline($blue);
+    position: relative;
+    font-family: $Founders;
+    text-decoration: none;
+    color: blue;
+    text-transform: uppercase;
+    @include text-size($font-menu-size-mobile, $font-body-size);
+
+}

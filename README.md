@@ -36,8 +36,6 @@ Multiple features of Prismic are used in this starter:
 Therefore the starter has following features:
 
 - Prismic as Headless CMS
-- Emotion for styling
-- Cypress for End-to-End testing
 - PrismJS highlighting
 - Responsive images (gatsby-image)
   - The right image size for every screen size

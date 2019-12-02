@@ -1,5 +1,5 @@
-$test: white;
-
-body {
-    background-color: $test;
-}
+@import 'globals';
+@import 'components';
+@import 'pages';
+@import 'templates';
+@import 'slices';

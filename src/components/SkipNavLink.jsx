@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import website from '../../config/website'
 
 const SkipNavLink = ({ children, ...props }) => (
-  <a {...props} href={`#${website.skipNavId}`} data-reach-skip-link>
+  <a className='skip-main' {...props} href={`#${website.skipNavId}`} data-reach-skip-link>
     {children}
   </a>
 )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const BodyText = ({ input }) => <div dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
+const BodyText = ({ input }) => <div className='slice__body-text' dangerouslySetInnerHTML={{ __html: input.primary.text.html }} />
 
 export default BodyText
 

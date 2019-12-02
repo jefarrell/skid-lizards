@@ -1,23 +1,24 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import Categories from './Categories'
+import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
+import Tags from './Tags';
 
 export default class ListItem extends Component {
   render() {
-    const { node, categories } = this.props
+    const { node, tags } = this.props;
     return (
+      // TODO
       <li>
         <p>
-          {node.data.date} — {categories && <Categories categories={categories} />}
+          {tags && <Tags tags={tags} />}
         </p>
         <Link to={node.uid}>{node.data.title.text}</Link>
       </li>
-    )
+    );
   }
 }
 
 ListItem.propTypes = {
   node: PropTypes.object.isRequired,
-  categories: PropTypes.array.isRequired,
+  tags: PropTypes.array,
 }

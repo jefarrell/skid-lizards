@@ -1,23 +1,23 @@
-const { RichText } = require('prismic-dom')
+const { RichText } = require('prismic-dom');
 
 // We don't want to import every PrismJS component - so that's why they're required individually
-const Prism = require('prismjs')
-require('prismjs/components/prism-javascript')
-require('prismjs/components/prism-css')
-require('prismjs/components/prism-scss')
-require('prismjs/components/prism-jsx')
-require('prismjs/components/prism-bash')
-require('prismjs/components/prism-json')
-require('prismjs/components/prism-diff')
-require('prismjs/components/prism-markdown')
-require('prismjs/components/prism-graphql')
+const Prism = require('prismjs');
+require('prismjs/components/prism-javascript');
+require('prismjs/components/prism-css');
+require('prismjs/components/prism-scss');
+require('prismjs/components/prism-jsx');
+require('prismjs/components/prism-bash');
+require('prismjs/components/prism-json');
+require('prismjs/components/prism-diff');
+require('prismjs/components/prism-markdown');
+require('prismjs/components/prism-graphql');
 
-const { Elements } = RichText
+const { Elements } = RichText;
 
 // Labels with this name will be inline code
-const codeInline = ['text']
+const codeInline = ['text'];
 // Labels with these names will become code blocks
-const codeBlock = ['javascript', 'css', 'scss', 'jsx', 'bash', 'json', 'diff', 'markdown', 'graphql']
+const codeBlock = ['javascript', 'css', 'scss', 'jsx', 'bash', 'json', 'diff', 'markdown', 'graphql'];
 
 const htmlSerializer = (type, element, content) => {
   switch (type) {
@@ -55,4 +55,4 @@ const htmlSerializer = (type, element, content) => {
   }
 }
 
-module.exports = htmlSerializer
+module.exports = htmlSerializer;

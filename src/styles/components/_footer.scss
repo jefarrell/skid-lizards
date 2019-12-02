@@ -1,0 +1,94 @@
+// Rule to change footer color on all pages except homepage
+.layout__wrap {
+  .footer {
+    background-color: $accent-gray;
+  }
+}
+
+.footer {
+  background-color: $black;
+  color: $accent-blue;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-20 0 $spacing-20 0;
+  box-sizing: border-box;
+  position: relative;
+  
+  @include bp-min(m) {
+    flex-direction: row;
+  }
+
+  &__left {
+    flex-basis: 25%;
+    position: relative;
+
+    @include bp-min(m) {
+      flex-direction: column;
+    }
+
+    .footer__copyright--text {
+      @include text-size($font-menu-size-mobile, $font-menu-size);
+      position: absolute;
+      left: 2%;
+      transform: rotate(90deg);
+      transform-origin: left;
+      top: -2%;
+    }
+
+    .footer__contact--text,
+    .footer__follow--text {
+      @include text-size($font-body-size-mobile, $font-body-size);
+      color: $accent-blue;
+      text-decoration: none;
+    }
+  }
+
+  &__center {
+    flex-basis: 50%;
+
+    @include bp-min(m) {
+      border-left: 1px solid $accent-blue;
+      border-right: 1px solid $accent-blue;
+    }
+
+    &--text {
+      @include text-size($font-newsletter-size-mobile, $font-newsletter-size);
+      font-family: $Values;
+    }
+  }
+
+  &__right {
+    flex-basis: 25%;
+    &:hover {
+      cursor: pointer;
+    }
+
+    .footer__top--text {
+      @include text-size($font-body-size-mobile, $font-body-size);
+    }
+
+    svg {
+      width: 50px;
+      padding-left: $spacing-12;
+    }
+  }
+
+  &__left,
+  &__right {
+    font-family: $Founders;
+  }
+
+  &__left,
+  &__right, 
+  &__center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-transform: uppercase;
+
+    @include bp-min(m) {
+      justify-content: center;
+    }
+  }
+}

@@ -1,0 +1,171 @@
+.about {
+    &__wrap {
+    }
+
+    &__intro {
+        &__text {
+            @include text-size($font-desc-size-mobile, $font-desc-size);
+            font-family: $Values;
+            color: $white;
+            background: rgb(0,0,0);
+            background: linear-gradient(
+                180deg, 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,1) 92%, 
+                rgba(255,255,255,1) 99%, 
+                rgba(255,255,255,0) 100%
+            );
+            padding: $spacing-75 $spacing-20;
+
+            p {
+                margin-bottom: $spacing-40;
+            }
+
+            @include bp-min(m) {
+                padding: $spacing-150;
+
+                p {
+                    margin-bottom: $spacing-75;
+                }
+            }
+        }
+    }
+    
+    &__foot__title {
+        @include text-size($font-heading3-size-mobile, 250px);
+        width: 100%;
+        display: block;
+        background-color: #cef8bb;
+        color: $white;
+        text-transform: uppercase;
+        font-family: $Founders;
+        text-align: center;
+    }
+}
+
+.about__info {
+    padding: $spacing-75 $spacing-20 300px $spacing-20;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255,255,255);
+    background: linear-gradient(
+        180deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,1) 4%, 
+        rgba(122,244,68,1) 85%, 
+        rgba(122,244,68,1) 100%
+    );
+
+    @include bp-min(m) {
+        padding: $spacing-150 $spacing-150 300px $spacing-150;
+    }
+
+    &__title {
+        font-size: $font-desc-size-mobile;
+        font-family: $Values;
+        text-transform: uppercase;
+        position: absolute;
+        transform: rotate(90deg);
+        transform-origin: left;
+        left: -2%;
+
+        @include bp-min(m) {
+            font-size: $font-desc-size;
+        }
+
+        &.-twitter {
+            position: relative;
+            left: initial;
+            transform: none;
+        }
+
+        &.-insta {
+            transform: rotate(0deg);
+            position: relative;
+        }
+
+        &.-staff {
+            transform: rotate(90deg) translateX(-10%);
+        }
+    }
+
+    &__staff--text,
+    &__contact--text,
+    &__email--text,
+    &__insta--text,
+    &__twitter--text {
+        font-size: $font-meta-about-mobile;
+        @include bp-min(m) {
+            font-size: $font-meta-size;
+        }
+    }
+
+    &__staff {
+        align-self: flex-end;
+        font-family: $Values;
+        display: flex;
+        position: relative;
+        padding-bottom: $spacing-60;
+
+        &--text {
+            ul {
+                list-style: none;
+            }
+            
+            li {
+                padding-bottom: $spacing-12;
+                @include bp-min(m) {
+                    padding-bottom: $spacing-20;
+                }
+            }
+        }
+    }
+
+    &__contact {
+        display: flex;
+        position: relative;
+        transform: translateX(30%);
+
+        @include bp-min(m) {
+            transform: translateX(0);
+        }
+
+        &--wrap {
+            padding-left: $spacing-20;
+        }
+
+        &--text {
+            p {
+                padding-bottom: $spacing-20;
+                font-family: $Founders;
+            }
+        }
+    }
+
+    &__social {
+        padding-top: $spacing-75;
+        align-self: baseline;
+        position: relative;
+
+        @include bp-min(m) {
+            padding-top: $spacing-150;
+            align-self: center;
+        }
+    }
+
+    &__insta,
+    &__twitter {
+        position: relative;
+        &--text {
+            display: inline;
+
+            p {
+                display: inline;
+            }
+        }
+    }
+
+    &__insta {
+        transform: rotate(90deg) translate($spacing-75, $spacing-75);
+    }
+}
