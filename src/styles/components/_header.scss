@@ -8,13 +8,9 @@ $menu-height-closed: 110px;
   background-color: $black;
   padding: $spacing-30;
   border-bottom: 2px solid $accent-green;
-
-  @include bp-min(m) {
-    position: sticky;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -45,11 +41,6 @@ $menu-height-closed: 110px;
   @include bp-min(m) {
     padding: $spacing-40;
   }
-
-  &__logo {
-    height: 75px;
-  }
-
 }
 
 .header-nav__title {

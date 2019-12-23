@@ -4,18 +4,14 @@ import { graphql } from 'gatsby';
 import { Layout, SliceZone, Header } from '../components';
 import website from '../../config/website';
 
-
-
 const Post = ({ data: { prismicPost, posts }, location }) => {
   const { data } = prismicPost;
-
   return (
     <Layout>
       <Header />
       <div>
         <div className='post__header'>
           <div className='post__header--left'>
-          {/* {tags && <Tags tags={tags} />} */}
           {
             data.main_image && <img className='post__header__img' src={data.main_image.url} />
           }

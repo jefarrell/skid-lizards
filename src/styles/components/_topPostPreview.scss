@@ -1,5 +1,6 @@
 .top-preview__wrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 0 0 $spacing-30 0;
@@ -46,20 +47,21 @@
 
 .top-preview__title {
   @include animated-link;
+  @include text-size($font-heading2-size-mobile, $font-heading2-size);
   font-family: $Apercu;
-  padding: $spacing-20;
+  margin: $spacing-30;
+  padding: $spacing-20 0;
   position: relative; 
   word-break: break-word;
   z-index: 0;
-  position: absolute;
   background-color: $black;
-  font-size: $font-heading2-size;
   text-transform: uppercase;
   text-decoration: none;
   color: $white;
-
+  text-align: center;
+  
   @include bp-min(m) {
-   
+    position: absolute;
   }
 }
 

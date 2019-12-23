@@ -6,7 +6,7 @@ const PureHeader = ({children, data}) => {
 
   return (
     <nav className={'header-nav__wrap'}>
-      <Link to='/'><Icon /></Link>
+      <Link className='header-nav__logo' to='/'><Icon /></Link>
       <Link to='/about' className='header-nav__link'>About</Link>
     </nav>
   )

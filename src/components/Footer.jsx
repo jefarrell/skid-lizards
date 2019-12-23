@@ -21,7 +21,9 @@ class Footer extends Component {
     return (
       <footer className='footer'>
           <a className='footer__contact--text' href={`mailto:${data.contact_email.text}`}>{ data.contact_text.text }</a>
-          <Link to="/"><Icon /></Link>
+          <Link 
+            className='footer__logo'
+            to="/"><Icon /></Link>
           <a className='footer__follow--text' href={data.follow_link.text} target="_blank" rel="noopener noreferrer">
             { data.follow_text.text }
           </a>
