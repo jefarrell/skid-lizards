@@ -4,6 +4,7 @@
 
   @include bp-min(m) {
     margin-bottom: $spacing-75;
+    margin-left: $spacing-150;
     justify-content: unset;
   }
 
