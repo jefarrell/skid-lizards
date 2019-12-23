@@ -1,0 +1,18 @@
+.logo-svg {
+  width: 300px;
+
+  .cls-1 {
+    fill: $accent-green;
+    transition: fill 200ms ease;
+  }
+
+  .cls-2 {
+    fill: $black;
+  }
+
+  &:hover {
+    .cls-1 {
+      fill: $white;
+    }
+  }
+}

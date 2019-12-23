@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import { Layout, Listing, SliceZone, SEO, Header, NextPostPreview } from '../components';
-import { Tags, Authors, Photographers } from '../components/Listing';
+import { Layout, SliceZone, Header } from '../components';
 import website from '../../config/website';
 
 
 
 const Post = ({ data: { prismicPost, posts }, location }) => {
   const { data } = prismicPost;
-
-  // let tags = false;
-  // if (data.tags[0].tag) {
-  //   tags = data.tags.map(c => c.tag.document[0].data.name);
-  // }
 
   return (
     <Layout>
@@ -48,12 +42,10 @@ const Post = ({ data: { prismicPost, posts }, location }) => {
       </div>
       <div id={website.skipNavId}>
         <div className='post__body'>
-          <div className='post__body--left'></div>
-          <div className='post__body--right'>
+
             {
               data.body && <SliceZone allSlices={data.body} />
             }
-          </div>
         </div>
       </div>
     </Layout>
@@ -168,129 +160,3 @@ export const pageQuery = graphql`
   }
 `
 
-
-// export const pageQuery = graphql`
-//   query PostBySlug($uid: String!) {
-//     prismicPost(uid: { eq: $uid }) {
-//       uid
-//       first_publication_date
-//       last_publication_date
-//       data {
-//         title {
-//           text
-//         }
-//         sub_title {
-//           text
-//         }
-//         date(formatString: "MMM. D, YYYY")
-//         main_image {
-//           url
-//         }
-//         tags {
-//           tag {
-//             document {
-//               data {
-//                 name
-//               }
-//             }
-//           }
-//         }
-//         body {
-//           ... on PrismicPostBodyText {
-//             slice_type
-//             id
-//             primary {
-//               text {
-//                 html
-//               }
-//             }
-//           }
-//           ... on PrismicPostBodyQuote {
-//             slice_type
-//             id
-//             primary {
-//               quote {
-//                 html
-//                 text
-//               }
-//             }
-//           }
-//           ... on PrismicPostBodyImage {
-//             slice_type
-//             id
-//             primary {
-//               image {
-//                 localFile {
-//                   childImageSharp {
-//                     fluid(maxWidth: 1200, quality: 90) {
-//                       ...GatsbyImageSharpFluid_withWebp
-//                     }
-//                   }
-//                 }
-//               }
-//               caption {
-//                 text
-//               }
-//             }
-//           }
-//           ... on PrismicPostBodyDoubleImage {
-//             slice_type
-//             id
-//             primary {
-//               image {
-//                 localFile {
-//                   childImageSharp {
-//                     fluid(maxWidth: 1200, quality: 90) {
-//                       ...GatsbyImageSharpFluid_withWebp
-//                     }
-//                   }
-//                 }
-//               }
-//               caption {
-//                 text
-//               }
-//               image_two {
-//                 localFile {
-//                   childImageSharp {
-//                     fluid(maxWidth: 1200, quality: 90) {
-//                       ...GatsbyImageSharpFluid_withWebp
-//                     }
-//                   }
-//                 }
-//               }
-//               caption_two {
-//                 text
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     posts: allPrismicPost(limit: 2, sort: { fields: [data___date], order: DESC }, filter: { uid: { ne: $uid } }) {
-//       nodes {
-//         uid
-//         data {
-//           title {
-//             text
-//           }
-//           sub_title {
-//             text
-//           }
-//           date(formatString: "MMM. D, YYYY")
-//           main_image {
-//             url
-//           }
-//           tags {
-//             tag {
-//               document {
-//                 data {
-//                   name
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `

@@ -1,6 +1,6 @@
 .listing__tag {
   display: none;
-  @include animated-underline;
+  @include animated-link;
 
   @include bp-min(m) {
     display: inline;

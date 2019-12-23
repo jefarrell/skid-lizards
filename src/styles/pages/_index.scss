@@ -29,25 +29,10 @@
   &__wrap {
     display: flex;
     flex-direction: column;
-
-    &--right {
-      display: none;
-    }
+    background-color: $black;
 
     @include bp-min(m) {
-      flex-direction: row;
-      overflow: auto;
-
-      &--left {
-        flex-basis: 80%;
-        overflow: hidden;
-        
-      }
-    
-      &--right {
-        flex-basis: 20%;
-        display: inline;
-      }
+      display: block;
     }
   }
 
@@ -57,7 +42,7 @@
     position: relative;
 
     &--link {
-      @include animated-underline($white);
+      @include animated-link();
       color: $white;
       text-decoration: none;
       font-family: $Helvetica;
@@ -89,22 +74,14 @@
     display: flex;
     flex-direction: column;
   
-    &--left,
-    &--right {
+    &--posts {
       width: 100%;
-    }
-
-    // style the title of the music block
-    &--right a {
-      text-decoration: none;
-      color: $black;
     }
 
     @include bp-min(m) {
       flex-direction: row;
 
-      &--left,
-      &--right {
+      &--posts {
         width: 50%;
       }
     }

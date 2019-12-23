@@ -1,5 +1,5 @@
 .listing__photographer {
-    @include animated-underline($blue);
+    @include animated-link();
     position: relative;
     font-family: $Helvetica;
     text-decoration: none;

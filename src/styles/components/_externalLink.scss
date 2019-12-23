@@ -51,7 +51,7 @@
   }
 
   &__url {
-    @include animated-underline($white);
+    @include animated-link();
     position: relative;
     color: $white;
     text-decoration: none;

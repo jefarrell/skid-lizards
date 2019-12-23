@@ -12,7 +12,6 @@ const PureLayout = ({ children, data, customSEO }) => (
     <div className='layout__wrap'>
       <SkipNavLink />
       {children}
-      {/* <Footer data={data.footer.data} /> */}
       <Main />
     </div>
 );

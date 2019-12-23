@@ -10,38 +10,33 @@ class About extends Component {
     const {
       data: { aboutpage },
     } = this.props
+    console.log(this.props)
     return (
       <div className='about'>
         <Header />
           <div className='about__wrap'>
             <div className='about__intro'>
-              <p className='about__intro__text'
-                dangerouslySetInnerHTML={{ __html: aboutpage.data.about_content.html }}
-              />
-            </div>
-            <div className='about__info'>
-              <div className='about__info__contact'>
-                <span className='about__info__title -contact'>Contact</span>
-                <div className='about_info__contact--wrap'>
-                  <p className='about__info__email--text' 
-                    dangerouslySetInnerHTML={{ __html: aboutpage.data.email.html }}
-                  />
-                </div>
+              <img 
+                className='about__intro__img'
+                src={aboutpage.data.hero_image.url} 
+                alt={aboutpage.data.hero_image.alt}
+                />
+              <div className='about__info'>
+                <p className='about__info__text'
+                  dangerouslySetInnerHTML={{ __html: aboutpage.data.about_content.html }}
+                />
+                <p className='about__info__insta--text' 
+                  dangerouslySetInnerHTML={{ __html: aboutpage.data.instagram_intro_text.html }}
+                />
+                <a 
+                  href={`mailto:${aboutpage.data.email.text}`}
+                  className='about__info__email--text'>
+                  Send an email, say hi!
+                </a>
               </div>
-              <div className='about__info__social'>
-                <div className='about__info__insta'>
-                  <span className='about__info__title -insta'>Instagram</span>
-                  <p className='about__info__insta--text' 
-                    dangerouslySetInnerHTML={{ __html: aboutpage.data.instagram_handle.html }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div>
-            <span className='about__foot__title'>OFFCENTER</span>
             </div>
           </div>
-          <Main />
+        <Main />
       </div>
     )
   }
@@ -57,7 +52,7 @@ About.propTypes = {
           html: PropTypes.string.isRequired,
         }),
         email: PropTypes.shape({
-          html: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired,
         }),
         instagram_handle: PropTypes.shape({
           html: PropTypes.string.isRequired,
@@ -74,10 +69,14 @@ export const pageQuery = graphql`
         about_content {
           html
         }
-        email {
-          html
+        hero_image {
+          url
+          alt
         }
-        instagram_handle {
+        email {
+          text
+        }
+        instagram_intro_text {
           html
         }
       }

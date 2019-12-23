@@ -6,6 +6,7 @@ import SliceZone from './SliceZone';
 import Layout from './Layout';
 import PostPreview from './PostPreview';
 import ExternalLink from './ExternalLink';
+import TopPostPreview from './TopPostPreview';
 
 export { 
     Footer, 
@@ -16,4 +17,5 @@ export {
     Header, 
     PostPreview,  
     ExternalLink,
+    TopPostPreview,
 }

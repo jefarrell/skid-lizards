@@ -73,21 +73,10 @@
     }
   }
 
-  @mixin animated-underline($ul-color: $black) {
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      border-bottom: 2px solid $ul-color;
-      transition: width 500ms ease;
-    }
-  
+  @mixin animated-link() {  
+    transition: transform 200ms ease;
+    
     &:hover {
-      &:after {
-        width: 100%;
-        transition: width 500ms ease;
-      }
+      transform: skewX(-15deg);
     }
   }

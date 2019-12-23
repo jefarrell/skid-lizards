@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
+import Icon from './LogoSvg';
 import { graphql, Link, StaticQuery } from 'gatsby';
-import kebabCase from 'lodash/kebabCase'
 
 const PureHeader = ({children, data}) => {
-  const uidArr = data.allUIDs.nodes;
-  const randomUID = uidArr[Math.floor(Math.random()*uidArr.length-1)]
-
-  const [isOpen, toggleIsOpen] = React.useState(false);
-  const setToggleIsOpen = () => toggleIsOpen(!isOpen);
 
   return (
-    <nav className={isOpen ? 'header__nav__wrap -open': 'header__nav__wrap'} onClick={setToggleIsOpen}>
-    
+    <nav className={'header-nav__wrap'}>
+      <Link to='/'><Icon /></Link>
+      <Link to='/about' className='header-nav__link'>About</Link>
     </nav>
   )
 }

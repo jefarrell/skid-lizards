@@ -2,7 +2,7 @@
     @include slice-spacing();
     @include text-size($font-body-size-mobile, $font-body-size);
     line-height: 1.5em;
-    font-family: $Helvetica;
+    font-family: $Post;
     p {
         padding-bottom: $spacing-75;
     }

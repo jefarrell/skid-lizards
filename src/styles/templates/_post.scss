@@ -9,22 +9,10 @@
     padding-top: $spacing-40;
   }
 
-  &--left,
   &--right {
     display: flex;
     flex: 1;
-  }
-
-  &--left {
-    justify-content: flex-end;
-    @include bp-min(m) {
-      margin-right: $spacing-20;
-    }
-  }
-
-  &--right {
     flex-direction: column;
-    justify-content: space-between;
     margin: 0 $spacing-20 $spacing-20 $spacing-20;
     
     @include bp-min(m) {
@@ -40,30 +28,14 @@
     align-self: flex-end;
   }
 
-  &__meta {
-    display: flex;
-    padding-top: $spacing-12;
-    
-    @include bp-min(m) {
-      padding-top: 0;
-    }
-  }
 
   &__title {
     @include text-size($font-heading2-size-mobile, $font-heading2-size);
-    font-family: $Times;
+    font-family: $Apercu;
     text-transform: uppercase;
     margin: $spacing-20 0 $spacing-40 0;
     position: relative;
-    
-    // &:before {
-    //   content: '';
-    //   position: absolute;
-    //   width: 100%;
-    //   height: 100%;
-    //   // background-color: red;
-    //   z-index: -1;
-    // }
+    color: $accent-green;
 
     @include bp-min(m) {
       margin: $spacing-40 0 $spacing-40 0;
@@ -74,32 +46,12 @@
 
   &__subtitle {
     @include text-size($font-heading4-size-mobile, $font-desc-size);
-    font-family: $Helvetica;
+    font-family: $Post;
     margin: 0 0 $spacing-20 0; 
+    color: $accent-green;
 
     @include bp-min(m) {
       margin: 0 0 $spacing-75 0; 
-    }
-  }
-
-  &__author,
-  &__photog {
-    font-family: $Helvetica;
-
-    &--wrap {
-      @include bp-min(m) {
-        align-self: flex-end;
-      }
-    }
-  }
-
-  &__photog {
-    &--wrap {
-      margin-top: $spacing-12;
-
-      @include bp-min(m) {
-        margin-top: $spacing-40;
-      }
     }
   }
 
@@ -109,48 +61,15 @@
   display: flex;
   flex-direction: row-reverse;
   padding: $spacing-75 $spacing-20 0 $spacing-20;
-  font-family: $Helvetica;
+  font-family: $Post;
+  color: $accent-green;
 
   @include bp-min(m) {
     padding: $spacing-75 $spacing-150 0 0;
     flex-direction: row;
   }
 
-  // &--left {
-  //   flex-basis: 5%;
-  //   @include bp-min(m) {
-  //     flex-basis: 25%;
-  //   }
-  // }
-
-  // &--right {
-  //   flex-basis: 95%;
-  //   @include bp-min(m) {
-  //     flex-basis: 75%;
-  //   }
-  // }
-
-}
-
-.post__footer {
-  &__title {
-    @include text-size($font-heading3-size-mobile, $font-heading1-size);
+  &--slicewrap {
     width: 100%;
-    display: block;
-    background-color: $black;
-    color: $white;
-    text-transform: uppercase;
-    font-family: $Helvetica;
-    text-align: center;
-  }
-
-  &__bio {
-    font-size: $font-menu-size;
-    font-family: $Helvetica;
-    padding: $spacing-75 $spacing-40 $spacing-40 $spacing-40;
-
-    a {
-      color: $black;
-    }
   }
 }

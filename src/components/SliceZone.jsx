@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { BodyText, Image, Quote, DoubleImage, MusicEmbed } from '../slices'
+import { BodyText, Image, Quote, DoubleImage } from '../slices'
 
 export default class SliceZone extends Component {
   render() {
@@ -16,13 +16,11 @@ export default class SliceZone extends Component {
           return <Quote key={s.id} input={s} />
         case 'double-image':
           return <DoubleImage key={s.id} input={s} />
-        case 'music-mix-link':
-          return <MusicEmbed key={s.id} input={s} />
         default:
           return null
       }
     });
-    return <div>{slice}</div>
+    return <div className='post__body--slicewrap'>{slice}</div>
   }
 }
 

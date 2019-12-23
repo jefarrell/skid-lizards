@@ -1,5 +1,5 @@
 .listing__author {
-    @include animated-underline($blue);
+    @include animated-link();
     display: inline-block;
     position: relative;
 
