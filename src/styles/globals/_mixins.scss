@@ -1,0 +1,82 @@
+@function strip-unit($number) {
+  @if (type-of($number) == "number" and not unitless($number)) {
+      @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+
+// interpolates type size between min and max
+@mixin text-size($min-font-size, $max-font-size) {
+    font-size: $min-font-size;
+  
+    @media screen and (min-width: $medium-min) {
+      font-size: calc(#{$min-font-size}
+                  + #{strip-unit($max-font-size - $min-font-size)}
+                  * ((100vw - #{$medium-min})
+                  / #{strip-unit($xlarge-min - $medium-min)}));
+    }
+  
+    @media screen and (min-width: $xlarge-min) {
+      font-size: $max-font-size;
+    }
+}
+
+// Media query mixin. Mobile-first opinionated.
+@mixin bp-min($size) {
+    @if $size == s {
+      @media (min-width: $small-min) {
+        @content;
+      }
+    } @else if $size == m {
+      @media (min-width: $medium-min) {
+        @content;
+      }
+    } @else if $size == l {
+      @media (min-width: $large-min) {
+        @content;
+      }
+    } @else if $size == xl {
+      @media (min-width: $xlarge-min) {
+        @content;
+      }
+    } @else if $size == xxl {
+      @media (min-width: $xxlarge-min) {
+        @content;
+      }
+    }
+  }
+  
+  // Media query mixin. Desktop-first opinionated.
+  @mixin bp-max($size) {
+    @if $size == s {
+      @media (max-width: $tiny-max) {
+        @content;
+      }
+    } @else if $size == m {
+      @media (max-width: $small-max) {
+        @content;
+      }
+    } @else if $size == l {
+      @media (max-width: $medium-max) {
+        @content;
+      }
+    } @else if $size == xl {
+      @media (max-width: $large-max) {
+        @content;
+      }
+    } @else if $size == xxl {
+      @media (max-width: $xlarge-max) {
+        @content;
+      }
+    }
+  }
+
+  @mixin animated-link() {  
+    transition: transform 200ms ease;
+    
+    &:hover {
+      transform: skewX(-15deg);
+    }
+  }

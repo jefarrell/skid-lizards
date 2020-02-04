@@ -1,0 +1,15 @@
+.tag-page {
+  &__title,
+  &__subtitle {
+    padding-left: $spacing-30;
+  }
+  
+  &__title {
+    @include text-size($font-heading2-size-mobile, $font-heading2-size);
+  }
+
+  &__subtitle {
+    font-family: $Helvetica;
+    @include text-size($font-desc-size-mobile, $font-desc-size);
+  }
+}
