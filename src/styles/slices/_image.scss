@@ -1,0 +1,28 @@
+.slice__img {
+  @include slice-spacing();
+  width: 100%;
+  margin: 0 0 $spacing-75 0;
+  overflow: hidden;
+
+  @include bp-min(m) {
+    margin: $spacing-30 0 $spacing-60 0;
+    width: 75%;
+  }
+
+  &--img {
+    transition: -webkit-filter 400ms ease-in-out;
+
+    &:hover {
+      filter: hue-rotate(66deg);
+    }
+  }
+
+  &--caption {
+    display: block;
+    font-size: $font-category-size;
+    padding-top: $spacing-12;
+    font-family: $Post;
+    line-height: 1.1;
+    transform: skewX(-15deg);
+  }
+}

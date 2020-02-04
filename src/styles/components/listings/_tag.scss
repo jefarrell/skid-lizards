@@ -1,0 +1,20 @@
+.listing__tag {
+  display: none;
+  @include animated-link;
+
+  @include bp-min(m) {
+    display: inline;
+    transform: rotate(90deg);
+    transform-origin: left;
+    position: absolute;
+    left: 2%;
+
+    a {
+      font-family: $Helvetica;
+      font-size: $font-heading4-size;
+      text-decoration: none;
+      color: $black;
+    }
+  }
+  
+}
