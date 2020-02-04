@@ -1,5 +1,5 @@
 .logo-svg {
-  width: 300px;
+  width: 200px;
 
   .cls-1 {
     fill: $accent-green;
@@ -11,8 +11,13 @@
   }
 
   &:hover {
+    cursor: pointer;
     .cls-1 {
       fill: $white;
     }
+  }
+
+  @include bp-min(m) {
+    width: 300px;
   }
 }

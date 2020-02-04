@@ -1,9 +1,9 @@
 .post__header {
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid $black;
+  border-bottom: 2px solid $accent-green;
   padding-top: $spacing-20;
-  
+
   @include bp-min(m) {
     flex-direction: row;
     padding-top: $spacing-40;
@@ -14,7 +14,7 @@
     flex: 1;
     flex-direction: column;
     margin: 0 $spacing-20 $spacing-20 $spacing-20;
-    
+
     @include bp-min(m) {
       margin-right: $spacing-40;
       margin-bottom: $spacing-40;
@@ -28,7 +28,6 @@
     align-self: flex-end;
   }
 
-
   &__title {
     @include text-size($font-heading2-size-mobile, $font-heading2-size);
     font-family: $Apercu;
@@ -40,21 +39,18 @@
     @include bp-min(m) {
       margin: $spacing-40 0 $spacing-40 0;
     }
-
-
   }
 
   &__subtitle {
     @include text-size($font-heading4-size-mobile, $font-desc-size);
     font-family: $Post;
-    margin: 0 0 $spacing-20 0; 
+    margin: 0 0 $spacing-20 0;
     color: $accent-green;
 
     @include bp-min(m) {
-      margin: 0 0 $spacing-75 0; 
+      margin: 0 0 $spacing-75 0;
     }
   }
-
 }
 
 .post__body {

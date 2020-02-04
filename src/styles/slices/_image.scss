@@ -10,11 +10,10 @@
   }
 
   &--img {
-    // transform: scale(1.05);
-    // transition: transform 1000ms ease;
+    transition: -webkit-filter 400ms ease-in-out;
 
-    &.-active {
-      //transform: scale(1);
+    &:hover {
+      filter: hue-rotate(66deg);
     }
   }
 
@@ -24,5 +23,6 @@
     padding-top: $spacing-12;
     font-family: $Post;
     line-height: 1.1;
+    transform: skewX(-15deg);
   }
 }

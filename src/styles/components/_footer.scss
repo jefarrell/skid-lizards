@@ -1,6 +1,5 @@
 .footer {
   background-color: $black;
-  height: 200px;
   display: flex;
   flex-direction: column;
   padding: $spacing-20 0 $spacing-20 $spacing-30;
@@ -15,6 +14,10 @@
     text-decoration: none;
     font-family: $Apercu;
     color: $accent-green;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   @include bp-min(m) {
@@ -22,16 +25,23 @@
     align-items: center;
     justify-content: space-around;
     padding-left: 0;
+    padding-bottom: $spacing-30;
   }
 
   &__contact--text {
     order: 1;
+    padding-bottom: $spacing-12;
+    @include bp-min(m) {
+      padding-bottom: 0;
+    }
   }
 
   &__follow--text {
     order: 2;
+    padding-bottom: $spacing-12;
     @include bp-min(m) {
       order: 3;
+      padding-bottom: 0;
     }
   }
 
