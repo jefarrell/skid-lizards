@@ -15,6 +15,7 @@ function createHeading() {
 }
 
 function createDistort() {
+    const root = document.querySelector('.heading');
     const canvas = document.querySelector('.heading__canvas');
     const context = canvas.getContext('2d');
     const img = new Image();
@@ -27,13 +28,12 @@ function createDistort() {
     }
 }
 
-
-function isVisible (ele) {
-    const { top, bottom } = ele.getBoundingClientRect();
+function isVisible(el) {
+    const { top, bottom } = el.getBoundingClientRect();
     const vHeight = (window.innerHeight || document.documentElement.clientHeight);
     return (
       (top > 0 || bottom > 0) &&
-      top < (vHeight / 3)
+      top < (vHeight / 1.5)
     );
 }
 

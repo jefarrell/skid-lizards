@@ -3,17 +3,14 @@
 
 body {
     background-color: white;
-    margin: 10vw;
 }
 
 .heading {
+    margin: 10vw;
     color: $orange;
     display: flex;
     justify-content: center;
-    min-height: 250px;
-    @include breakpoint(m) {
-        min-height: 800px;
-    }
+
     &__wrap {
         position: relative;
     }
@@ -23,9 +20,9 @@ body {
         z-index: 10;
         width: 50vw;
         height: auto;
-        top: -30px;
+        transform: translateY(-150px);
         @include breakpoint(m) {
-            top: -100px;
+            transform: translateY(-300px);
         }
     }
 
@@ -34,16 +31,26 @@ body {
         height: auto;
         margin: 0 auto;
         display: block;
-        position: absolute;
     }
 }
 
 .text {
+    margin: 10vw;
     &__title {
         text-align: center;
         font-size: 24px;
         @include breakpoint(m) {
-            font-size: 88px;
+            font-size: 80px;
+            margin-top: 24px;
+        }
+    }
+
+    &__body {
+        text-align: center;
+        font-size: 18px;
+        @include breakpoint(m) {
+            font-size: 32px;
+            margin-top: 12px;
         }
     }
 }
@@ -51,8 +58,12 @@ body {
 .images {
     .image {
         width: 75vw;
-        @include breakpoint(m) {
-            width: 40vw;
+        opacity: 0;
+        transform: translateY(80px);
+        transition: opacity 400ms ease, transform 800ms ease;
+        &.-active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         &--left {
@@ -70,22 +81,30 @@ body {
             }
         }
 
+        &--center {
+            margin: 0 10vw;
+        }
+
+        @include breakpoint(m) {
+            width: 40vw;
+        }
+
         &__wrap {
             display: flex;
             flex-direction: column;
             @include breakpoint(m) {
                 flex-direction: row;
+                margin: 10vw;
             }
         }
     }
 }
 
-.to-observe {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 600ms ease, transform 600ms ease;
-    &.-active {
-        opacity: 1;
-        transform: translateY(0);
+.link {
+    color: $black;
+    transition: color 250ms ease;
+    &:hover {
+        color: $green;
+        cursor: pointer;
     }
 }
