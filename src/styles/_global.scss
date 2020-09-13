@@ -1,0 +1,9 @@
+$black: #000;
+$orange: #FF9E1B;
+$device-m: 768px;
+
+@mixin breakpoint($size) {
+  @media (min-width: $device-m) {
+    @content;
+  }
+}

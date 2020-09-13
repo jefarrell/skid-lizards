@@ -1,7 +1,0 @@
-@mixin slice-spacing {
-  padding-left: $spacing-12;
-
-  @include bp-min(m) {
-    padding-left: $spacing-150;
-  }
-}

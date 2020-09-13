@@ -1,261 +1,364 @@
-# Gatsby Starter: Prismic
+<img alt="Webpack Starter Basic Loo" src="https://github.com/lifenautjoe/webpack-starter-basic/blob/master/src/assets/logo-on-dark-bg.png?raw=true" width="250">
 
-A typography-heavy & light-themed Gatsby Starter which uses the Headless CMS [Prismic](https://prismic.io/).
+# webpack-starter-basic
+[![forthebadge](http://forthebadge.com/images/badges/fo-real.svg)](http://forthebadge.com)[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
 
-[Demo Website](https://prismic.lekoarts.de)
+[![dependencies](https://david-dm.org/lifenautjoe/webpack-starter-basic.svg)](https://david-dm.org/lifenautjoe/webpack-starter-basic)
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/LekoArts/gatsby-starter-prismic)
+A simple **webpack 4 starter project** for your basic web development needs.
 
-[![CircleCI](https://circleci.com/gh/LekoArts/gatsby-starter-prismic.svg?style=svg)](https://circleci.com/gh/LekoArts/gatsby-starter-prismic) [![Netlify Status](https://api.netlify.com/api/v1/badges/f06e32cf-ef46-4544-b37d-0de548c0ea1b/deploy-status)](https://app.netlify.com/sites/gatsby-starter-prismic/deploys)
+Read more on the [demo website](https://lifenautjoe.github.io/webpack-starter-basic/) or continue reading below.
 
-## About Me
+## Table of Contents
 
-I hope you like my starters and create something awesome! To see some of my work you can visit my [website](https://www.lekoarts.de) or support me on [Patreon](https://www.patreon.com/lekoarts) to get some neat rewards (4K images, project files, tutorial insights). Every pledge on Patreon helps me creating more free starters!
+- [Motivation](#motivation)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [FAQ](#faq)
+  * [When should I use this starter?](#when-should-i-use-this-starter)
+  * [Where's the common webpack config?](#wheres-the-common-webpack-config)
+  * [How to load fonts](#how-to-load-fonts)
+  * [How to load images](#how-to-load-images)
+    + [In JavaScript](#in-javascript)
+    + [In `index.html`](#in-indexhtml)
+  * [How to install bootstrap 4](#how-to-install-bootstrap-4)    
+- [Websites using this starter kit on the wild](#websites-using-this-starter-kit-on-the-wild)
 
-Also check out the other _gatsby-starters_:
+## Motivation
 
-- [gatsby-starter-portfolio-emma](https://github.com/LekoArts/gatsby-starter-portfolio-emma)
-- [gatsby-starter-portfolio-emilia](https://github.com/LekoArts/gatsby-starter-portfolio-emilia)
-- [gatsby-starter-portfolio-jodie](https://github.com/LekoArts/gatsby-starter-portfolio-jodie)
-- [gatsby-starter-portfolio-bella](https://github.com/LekoArts/gatsby-starter-portfolio-bella)
-- [gatsby-starter-portfolio-cara](https://github.com/LekoArts/gatsby-starter-portfolio-cara)
-- [gatsby-starter-minimal-blog](https://github.com/LekoArts/gatsby-starter-minimal-blog)
-- [gatsby-starter-prismic-i18n](https://github.com/LekoArts/gatsby-starter-prismic-i18n)
+I needed to make a plain ol' "drop your mail to stay updated of ongoing developments" page.
 
-Check out the [Gatsby Starter Portfolio Overview](https://gatsby-starter-portfolio.netlify.com/)!
+I did not need anything fancy, no frontend framework, no unit testing, simply a **starter project that would let me use sass, ES6, load assets, add vendor prefixes, start a dev server, generate sourcemaps and optimize everything for production.**
+
+I looked around and all I found were heavily specialized and complicated webpack starter projects (`webpack-angular-starter`, `webpack-react-starter`, etc) that are so intertwined with plugins that stripping undesired functionality is almost impossible. 
+
+So I did this.
 
 ## Features
 
-Multiple features of Prismic are used in this starter:
+* Separated development and production webpack settings you can understand
+* Sass
+* ES6
+* Asset loading
+* CSS Vendor prefixing
+* Development server
+* Sourcemaps
+* Favicons generation
+* Production optimizations
+* Mobile browser header color
 
-- **Slices**: Enrich your blogposts with custom quotes, images or codeblocks. You can order them how you like. When you used the _Image-Slice_ the image will get inserted and optimized by **gatsby-image**
-- **Labels**: When marking a single word or a whole block with the given labels, Prism.js will transform these to syntax-highlighted codeblocks
-- **Relationship fields**: Categorize your blogposts in Categories via a relationship field. You can change categories on the fly
-- **Both custom types (Single / Repeatable)**: (Nearly) Every aspect of the website is managed with Prismic. The social media links or the recent projects get both managed in Prismic, no hardcoded entries!
+## Requirements
 
-Therefore the starter has following features:
+* [Node](https://nodejs.org) > 7.6
 
-- Prismic as Headless CMS
-- PrismJS highlighting
-- Responsive images (gatsby-image)
-  - The right image size for every screen size
-  - Traced SVG Loading (Lazy-Loading)
-  - WebP Support
-- SEO
-  - Sitemap
-  - Schema.org JSONLD
-  - OpenGraph Tags
-  - Twitter Tags
-  - Favicons
-- Offline Support
-- WebApp Manifest Support
-- Typography.js
-- Configurable
-  - Use the `website.js` to easily change the most important information
-  - Themeable with `theme.js`
+## Usage
 
-## Instructions
+Substitute `PROJECT-NAME` for your project name.
 
-### Quick start guide
+Clone the repository
 
-The easiest way to deploy this starter is to use the same setup, meaning that your Prismic repository is configured the same way as this starter. The rest of this README aims to explain exactly that. You can read through the instructions with this high-level overview in mind:
-
-1. Clone and install the starter
-2. Register an account on Prismic
-3. Configure your custom types
-4. Create an API key and store it in an ENV variable
-5. Go to your content tab
-6. Create new documents for the `Homepage, Hero Links, Projects` type and fill out every input field
-7. Create at least one document for the `Category` type
-8. Create at least one document for the `Post` type. Every _Slice_ needs to be used at least one time and it needs to have one category assigned! _Note: You could for example create one post with every slice and one category in it._
-9. Your project is ready for development and production
-
-### Custom setup
-
-Changes to your Prismic repository imply the need to change the React/GraphQL code of this starter, e.g. if you change the names (and therefore API IDs) of custom types or their input fields, you'll need to change the corresponding GraphQL queries.
-
-#### Example: Use other slices
-
-Let's say you don't need to use the `Quote` slice. How would you get Gatsby to work without this slice?
-
-In this case the `Quote` slice gets queried in the `src/templates/post.jsx` file:
-
-```graphql
-... on PrismicPostBodyQuote {
-  slice_type
-  id
-  primary {
-    quote {
-      html
-      text
-    }
-  }
-}
+```sh
+ git clone https://github.com/lifenautjoe/webpack-starter-basic PROJECT-NAME
+ cd PROJECT-NAME
 ```
 
-Remove that bit from the query and Gatsby won't look for the Quote slice anymore (you also can remove the `src/slices/Quote.jsx` file). Vice versa you'd add a file in the `src/slices` directory, add it to `src/components/SliceZone.jsx`, and add it to the template query.
+Install npm dependencies
 
-## Install
-
-Check your development environment! You'll need [Node.js](https://nodejs.org/en/), the [Gatsby CLI](https://www.gatsbyjs.org/docs/) and [node-gyp](https://github.com/nodejs/node-gyp#installation) installed. The official Gatsby website also lists two articles regarding this topic:
-
-- [Gatsby on Windows](https://www.gatsbyjs.org/docs/gatsby-on-windows/)
-- [Check your development environment](https://www.gatsbyjs.org/tutorial/part-zero/)
-
-To copy and install this starter run this command (with "project-name" being the name of your folder you wish to install it in):
-
-```shell
-gatsby new project-name https://github.com/LekoArts/gatsby-starter-prismic
-cd project-name
+```sh
+ npm install 
 ```
 
-## Setup
-
-You have to know the basics of Prismic's interface in order to be able to make the necessary changes / setup your project accordingly. You can also checkout the document ["Sourcing from Prismic"](https://www.gatsbyjs.org/docs/sourcing-from-prismic/) I wrote for the official Gatsby documentation.
-
-### Custom types
-
-To configure the exact same custom type as this starter, follow these steps:
-
-1. Go to your custom types tab
-2. Click the button "Create New" and choose "Repeatable Type". Give it the name `Post` (the API ID should be `post` automatically)
-3. On the right side you have a sidebar with **Build mode** and **JSON editor**. Open the **JSON editor** tab and insert the data from `.prismic/post.json`. Save your type
-
-Follow the second and third step (with the respective file from `.prismic`) for the following types:
-
-| Name       | API ID     | Type       |
-| ---------- | ---------- | ---------- |
-| Category   | category   | Repeatable |
-| Hero Links | hero_links | Single     |
-| Homepage   | homepage   | Single     |
-| Projects   | projects   | Single     |
-
-These are the exact same custom types I used for this starter.
-
-### gatsby-config
-
-#### repositoryName
-
-Don't forget to change the default `repositoryName` in the plugin's option. The `repositoryName` is the name you have entered at the creation of the repository (you’ll also find it as the subdomain in the URL)
-
-#### lang
-
-If you only have one language in your Prismic repository you should remove the `lang: 'en-gb'` option in the config. If you want to grab multiple languages, you can also remove this line.
-
-#### API key
-
-You need to define the API Key for your Prismic repository in `gatsby-config.js` ([Video tutorial](https://www.youtube.com/watch?v=iH0P4KcOeVc)). You can retrieve the key here:
-
-- You can generate an access token in the **API & Security** section of your repository settings. Setting a **Callback URL** is not necessary.
-- The token will be listed under "Permanent access tokens".
-
-It's best to store the API Key in an environment variable. Create the file `.env` in the root dir of your project. Its content should be:
-
-`API_KEY=OIJSOJIO-YOURKEYHERE-EAJNALÖKND`
-
-If you deploy to Netlify you can also setup an environment variable.
-
-More information on the source plugin: [gatsby-source-prismic](https://github.com/angeloashmore/gatsby-source-prismic)
-
-### Labels
-
-Prismic gives you the tool called **Label** in the Rich Text field. You can wrap single words or complete text blocks with a label (they will have a yellow background when labeled). Normally this is just a `<span>` with a name, but the `gatsby-config.js` converts these marked words/blocks into code blocks with PrismJS classnames (and therefore syntax highlighting 🎉).
-
-The two usecases:
-
-- You mark a single word / sentence and apply the `text` label: Inline code (single backtick in markdown)
-- You choose the `Preformatted` block (where can also choose the Headings) and apply any other (except `text`) label: Code block (three backticks in markdown)
-
-### Slices
-
-The `Post` custom types offers four slices in the slice zone:
-
-- **Code Block**: This slice automatically inserts a `Preformatted` field in which you can paste your code. Before inserting you should choose a **Label** for the correct syntax highlighting
-- **Quote**: A quote in a `blockquote`
-- **Text**: Your normal _Rich Text_ field
-- **Image**: This image won't be inlined with a Prismic URL, but downloaded and processed with `gatsby-image`
-
-## Development
-
-**Before running the local development server you'll need to add Content to your Prismic repository!**
-
-Go to your documents (`https://your-name.prismic.io/documents/`) and create content with the newly created types. Fill out the `Homepage`, `Hero Links`, and `Projects` single type. Create some categories and add at least one Post. This post needs to contain all available slices and at least one category. If you create multiple posts make sure that every slice gets used at least one time.
-
-**Please note**: You have to publish all these documents (not only saving them)!
-
-After that you can run the local server:
-
-```shell
-npm run develop
+Run the kickstart command
+```sh
+npm run kickstart
 ```
 
-### Adding new features/plugins
+**After the project has been kickstarted**
 
-You can add other features by having a look at the official [plugins page](https://www.gatsbyjs.org/plugins/)
+To start the development server
 
-### Building your site
+```sh
+npm start
+```
 
-```shell
+To build for production
+
+```sh
 npm run build
 ```
 
-Copy the content of the `public` folder to your webhost or use a website like Netlify which automates that for you.
+To preview the production build
+```sh
+npm run preview
+```
 
-## Configuration
+## FAQ
 
-You can configure your setup in `config/website`:
+### When should I use this starter?
 
-```JS
+You should use this starter if any of the following are true:
+
+* You want to make a static page. e.g. splash screen, onboarding screen, phaser game, threejs visualization, countdown.
+* You found no good starter kit for whatever you want to do and need a solid place to start from.
+
+**Please note**: If you are going to use a frontend framework like angular or react, you can of course add the required plugins and 
+configuration but it's normally complicated and quirky enough that it's highly recommended to use one of the existing 
+starter projects such as [react-webpack-babel](https://github.com/alicoding/react-webpack-babel) or for angular projects the [angular-cli](https://github.com/angular/angular-cli).
+
+### Where's the common webpack config?
+
+**There is none and that is good thing.**
+
+The pattern creates unnecessary confusion over the setup, at the end the config will always be different across environments.
+People just put booleans everywhere on the common config to switch between these differing configuration options which is just awful to see and confusing for someone who's just starting on webpack.
+
+The only truly shared config between these files are the entry js point and the main html template.
+
+### How to load fonts
+
+If you don't support Opera Mini, browsers support the .woff format. Its newer version .woff2, is widely supported by modern browsers and can be a good alternative.
+
+If you decide to use only this format you can load the fonts in a similar manner to images.
+
+In your `webpack.dev.js` and `webpack.prod.js` add the following
+
+```js
 module.exports = {
-  pathPrefix: '/', // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "portfolio"
-  title: 'Gatsby Starter - Prismic.io', // Navigation and Site Title
-  titleAlt: 'Gatsby Prismic.io', // Title for JSONLD
-  description: 'A typography-heavy & light-themed Gatsby Starter which uses the Headless CMS Prismic.',
-  headline: 'Writing and publishing content for LekoArts', // Headline for schema.org JSONLD
-  url: 'https://prismic.lekoarts.de', // Domain of your site. No trailing slash!
-  siteLanguage: 'en', // Language Tag on <html> element
-  logo: '/logos/logo-1024.png', // Used for SEO
-  ogLanguage: 'en_US', // Facebook Language
+    // ..
+    module: {
+        rules: [
+            // ..
+            {
+                test: /\.woff$/,
+                loader: 'url-loader',
+                options: {
+                    // Limit at 50k. Above that it emits separate files
+                    limit: 50000,
+                    // url-loader sets mimetype if it's passed.
+                    // Without this it derives it from the file extension
+                    mimetype: 'application/font-woff',
+                    // Output below fonts directory
+                    name: './fonts/[name].[ext]',
+                },
+            }
+            // ..
+        ]
+    }
+    // ..
+};
+```
 
-  // JSONLD / Manifest
-  favicon: 'src/favicon.png', // Used for manifest favicon generation
-  shortName: 'Prismic', // shortname for manifest. MUST be shorter than 12 characters
-  author: 'LekoArts', // Author for schemaORGJSONLD
-  themeColor: '#3D63AE',
-  backgroundColor: '#EBEDF2',
+And let's say your font is in the folder `assets` with the name `pixel.woff`
 
-  twitter: '@starter_prismicio', // Twitter Username
-  facebook: 'gatsby-prismic', // Facebook Site Name
+You can add it and use it in `index.scss` as
+```scss
+@font-face {
+    font-family: "Pixel";
+    src: url('./../assets/pixel.woff') format('woff');
+}
 
-  skipNavId: 'reach-skip-nav', // ID for the "Skip to content" a11y feature
+.body{
+    font-family: 'Pixel', sans-serif;
 }
 ```
 
-You can also change the colors, container widths and other stuff in `src/styles/theme`:
+If you would like to support all kinds of font types, remove the woff rule we previously added to `webpack.dev.js` and `webpack.prod.js` and add the following
 
-```JS
-const theme = {
-  colors: {
-    primary: '#3D63AE',
-    bg: '#fff',
-    black: '#000',
-    greyLight: '#EBEDF2',
-    greyBlue: '#a2bce2',
-    grey: '#595C62',
-    greyDark: '#303643',
-    greyDarker: '#1c252b',
-  },
-  maxWidth: '1000px',
-  maxWidthText: '720px',
-  breakpoints: {
-    xs: '400px',
-    s: '600px',
-    m: '900px',
-    l: '1200px',
-  },
-}
-
-export default theme
+```js
+module.exports = {
+    // ..
+    module: {
+        rules: [
+            // ..
+            {
+                test: /\.(ttf|eot|woff|woff2)$/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]',
+                },
+            }
+            // ..
+        ]
+    }
+    // ..
+};
 ```
 
-**Attention:** You also need to edit `static/robots.txt` to include your domain!
+And assuming you have your fonts in the directory `assets` with names `pixel.woff`, `pixel.ttf`, `pixel.eot` , etc.
+
+You can add it and use it in `index.scss` as
+```scss
+@font-face {
+    font-family: 'Pixel';
+    src: url('./../assets/pixel.woff2') format('woff2'),
+    url('./../assets/pixel.woff') format('woff'),
+    url('./../assets/pixel.eot') format('embedded-opentype'),
+    url('./../assets/pixel.ttf') format('truetype');
+    /* Add other formats as you see fit */
+}
+```
+
+### How to load images
+
+#### In JavaScript
+
+You can require an image from JavaScript like
+```js
+const myImage = require('./assets/icon.png');
+```
+
+If the image size in bytes is smaller than `8192`you, `myImage` will be a string with the encoded image path such as 
+```
+data:image/svg+xml;base64,bW9kdWxlLmV4cG9ydHMgPSBfX3dlYnBhY2tfcHVibGljX3BhdGhfXyArICJhc3NldHMvaW1hZ2VzL3RpY2stQ3lydkhSdi5zdmciOw==
+```
+If the image size is larger than `8192` it will be a string with the url to the image such as 
+```
+src/assets/icon.png?hash=5b1f36bc41ab31f5b801
+```
+
+This limit is set so images like icons are not loaded through a request but you can force the loader to give you image urls always by doing the following but should not be necessary. The limit works 90% of the time.
+```js
+const myImage = require('!!url!/assets/icon.png');
+```
+
+#### In `index.html`
+
+If you would like to include an image on your `index.html` file, place the path of the image in a webpack require statement`<%= require(imagePath) %>`.
+
+```html
+  <img class="splash-title__img"
+                     src="<%= require('./src/assets/logo-on-dark-bg.png') %>"
+                     alt="webpack logo"></a>
+```
+
+### How to install Bootstrap 4
+
+
+**After the project has been kickstarted**
+
+Install bootstrap
+````sh
+npm install bootstrap@4 --save
+````
+
+Install bootstrap dependencies.
+````sh
+npm install popper.js --save
+npm install jquery --save
+````
+
+Replace the project `index.scss` with 
+
+````scss
+@import "~bootstrap/scss/bootstrap";
+````
+
+And replace the project `index.js` with
+````js
+require('./styles/index.scss');
+
+import PopperJs from 'popper.js';
+import jquery from 'jquery';
+
+
+jquery(()=>{
+    console.log('Hello jQuery + bootstrap 4!');
+});
+````
+
+To see it all come together, replace the index.html body tag with 
+
+````html
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+    </div>
+
+</main><!-- /.container -->
+</body>
+````
+
+Start the development server and `voilà`.
+
+```sh
+npm start
+```
+
+To build for production
+
+```sh
+npm run build
+```
+
+To preview the production build
+```sh
+npm run preview
+```
+
+
+⚠️ Please remember to remove the Google Analytics tag in the `index.html` file as soon as you make the template yours.
+
+```html
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-101423651-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-101423651-2');
+</script>
+```
+
+
+## Websites using this starter kit on the wild
+
+* [Droppable library](https://github.com/lifenautjoe/droppable)
+* [Noel Event Emitter](https://github.com/lifenautjoe/noel)
+* [ChooseIT Wishbot](http://voeux2018.choosit.com/)
+* [Webpack Starter Basic](https://lifenautjoe.github.io/webpack-starter-basic/)
+* [Okuna](https://www.okuna.io/)
+
+Have a website online built with this starter kit and would like to add it to the list? Open an issue!
+
+
+___
+Author [Joel Hernandez](www.lifenautjoe.com)
+
