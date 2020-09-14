@@ -23,21 +23,25 @@
 <body>
     <main>
         <div class="heading">
-            <canvas class="heading__canvas"></canvas>
+            <canvas id="heading__canvas"></canvas>
         </div>
         <div class="text">
             <h1 class="text__title">Skid Lizards are a group of friends with bikes and jobs.</h1>
         </div>
-        <div class="images">
-            <div class="image__wrap">
-                <img alt="" class="image image--left to-observe" src="<%= require('./src/assets/jf.jpg') %>" />
-                <img alt="" class="image image--right to-observe" src="<%= require('./src/assets/nn.jpg') %>" />
-            </div>
+        <div class="image__wrap">
+            <img alt="" class="image image--left to-observe" src="<%= require('./src/assets/jf.jpg') %>" />
+            <img alt="" class="image image--right to-observe" src="<%= require('./src/assets/nn.jpg') %>" />
         </div>
         <div class="text">
             <h2 class="text__body">
                 We're mainly on <a class="link" href="https://instagram.com/skidlizards" target="_blank">Instagram</a>
             </h2>
+        </div>
+        <div class="video__wrap">
+            <canvas id="video__canvas"></canvas>
+            <video class="video" src="<%= require('./src/assets/skid.mov') %>" preload autobuffer></video>
+        </div>
+        <div class="text">
             <h3 class="text__body">
                 Enter the <a class="link" href="https://bikepacking.com/news/swift-campout-video-challenge/" target="_blank">Swift Campout Challenge!</a>
             </h3>
@@ -46,7 +50,12 @@
             </h3>
         </div>
         <div class="image__wrap">
-                <img alt="" class="image image--center to-observe" src="<%= require('./src/assets/austin.jpg') %>" />
+            <img alt="" class="image image--center to-observe" src="<%= require('./src/assets/austin.jpg') %>" />
+        </div>
+        <div class="text">
+                <h4 class="text__close">
+                    Slow Down Fast
+                </h4>
             </div>
     </main>
 </body>

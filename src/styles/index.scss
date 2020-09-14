@@ -6,10 +6,14 @@ body {
 }
 
 .heading {
-    margin: 10vw;
+    margin: 10vw 5vw;
     color: $orange;
     display: flex;
     justify-content: center;
+
+    @include breakpoint(m) {
+        margin: 10vw;
+    }
 
     &__wrap {
         position: relative;
@@ -20,9 +24,9 @@ body {
         z-index: 10;
         width: 50vw;
         height: auto;
-        transform: translateY(-150px);
+        transform: translateY(-20vw);
         @include breakpoint(m) {
-            transform: translateY(-300px);
+            transform: translateY(-20vw);
         }
     }
 
@@ -45,7 +49,8 @@ body {
         }
     }
 
-    &__body {
+    &__body,
+    &__close {
         text-align: center;
         font-size: 18px;
         @include breakpoint(m) {
@@ -53,58 +58,80 @@ body {
             margin-top: 12px;
         }
     }
+
+    &__close {
+        margin: 56px 0;
+    }
 }
 
-.images {
-    .image {
-        width: 75vw;
-        opacity: 0;
-        transform: translateY(80px);
-        transition: opacity 400ms ease, transform 800ms ease;
-        &.-active {
-            opacity: 1;
-            transform: translateY(0);
-        }
 
-        &--left {
-            @include breakpoint(m) {
-                margin-right: 2.5vw;
-            }
-        }
+.image {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 400ms ease, transform 800ms ease;
+    &.-active {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-        &--right {
-            align-self: flex-end;
-            margin-top: 24px;
-            @include breakpoint(m) {
-                margin-top: 0;
-                margin-left: 2.5vw;
-            }
-        }
-
-        &--center {
-            margin: 0 10vw;
-        }
-
+    &--left {
+        width: 65vw;
         @include breakpoint(m) {
+            margin-right: 2.5vw;
             width: 40vw;
         }
+    }
 
-        &__wrap {
-            display: flex;
-            flex-direction: column;
-            @include breakpoint(m) {
-                flex-direction: row;
-                margin: 10vw;
-            }
+    &--right {
+        width: 65vw;
+        align-self: flex-end;
+        margin-top: 24px;
+        @include breakpoint(m) {
+            margin-top: 0;
+            margin-left: 2.5vw;
+            width: 40vw;
+        }
+    }
+
+    &--center {
+        width: 90vw;
+        margin: 0 auto;
+        @include breakpoint(m) {
+            width: 80vw;
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        @include breakpoint(m) {
+            flex-direction: row;
+            margin: 10vw;
         }
     }
 }
+
 
 .link {
     color: $black;
-    transition: color 250ms ease;
+    transition: color 250ms ease, transform 250ms ease;
+    transform: skewX(0);
+    display: inline-block;
     &:hover {
         color: $green;
+        transform: skewX(-20deg);
         cursor: pointer;
     }
+}
+
+.video {
+    width: 100%;
+    &__wrap {
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+#video__canvas { 
+    height: 0;
 }
