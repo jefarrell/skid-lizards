@@ -88,8 +88,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
-            // Inject the js bundle at the end of the body of the given template
-            inject: 'body',
+            inject: true,
         }),
         new CleanWebpackPlugin(buildPath),
         new FaviconsWebpackPlugin({
