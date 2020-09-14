@@ -1,5 +1,137 @@
-@import 'globals';
-@import 'components';
-@import 'pages';
-@import 'templates';
-@import 'slices';
+@import 'fonts';
+@import 'global';
+
+body {
+    background-color: white;
+}
+
+.heading {
+    margin: 10vw 5vw;
+    color: $orange;
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint(m) {
+        margin: 10vw;
+    }
+
+    &__wrap {
+        position: relative;
+    }
+
+    &__logo {
+        position: absolute;
+        z-index: 10;
+        width: 50vw;
+        height: auto;
+        transform: translateY(-20vw);
+        @include breakpoint(m) {
+            transform: translateY(-20vw);
+        }
+    }
+
+    &__canvas {
+        width: 90vw;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+.text {
+    margin: 10vw;
+    &__title {
+        text-align: center;
+        font-size: 24px;
+        @include breakpoint(m) {
+            font-size: 80px;
+            margin-top: 24px;
+        }
+    }
+
+    &__body,
+    &__close {
+        text-align: center;
+        font-size: 18px;
+        @include breakpoint(m) {
+            font-size: 32px;
+            margin-top: 12px;
+        }
+    }
+
+    &__close {
+        margin: 56px 0;
+    }
+}
+
+
+.image {
+    opacity: 0;
+    transform: translateY(80px);
+    transition: opacity 400ms ease, transform 800ms ease;
+    &.-active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &--left {
+        width: 65vw;
+        @include breakpoint(m) {
+            margin-right: 2.5vw;
+            width: 40vw;
+        }
+    }
+
+    &--right {
+        width: 65vw;
+        align-self: flex-end;
+        margin-top: 24px;
+        @include breakpoint(m) {
+            margin-top: 0;
+            margin-left: 2.5vw;
+            width: 40vw;
+        }
+    }
+
+    &--center {
+        width: 90vw;
+        margin: 0 auto;
+        @include breakpoint(m) {
+            width: 80vw;
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+        @include breakpoint(m) {
+            flex-direction: row;
+            margin: 10vw;
+        }
+    }
+}
+
+
+.link {
+    color: $black;
+    transition: color 250ms ease, transform 250ms ease;
+    transform: skewX(0);
+    display: inline-block;
+    &:hover {
+        color: $green;
+        transform: skewX(-20deg);
+        cursor: pointer;
+    }
+}
+
+.video {
+    width: 100%;
+    &__wrap {
+        width: 90vw;
+        margin: 0 auto;
+    }
+}
+
+#video__canvas { 
+    height: 0;
+}
