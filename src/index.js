@@ -29,7 +29,7 @@ function isVisible(el, divisor = 1.5) {
 }
 
 function observe() {
-    const els = document.getElementsByClassName('image');
+    const els = Array.from(document.getElementsByClassName('image'));
     els.forEach((el) => {
         window.addEventListener('scroll', (e) => {
             if (isVisible(el)) {
