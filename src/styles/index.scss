@@ -71,7 +71,7 @@ body {
     opacity: 0;
     transform: translateY(80px);
     transition: opacity 400ms ease, transform 800ms ease;
-    .active {
+    &.active {
         opacity: 1;
         transform: translateY(0);
     }
