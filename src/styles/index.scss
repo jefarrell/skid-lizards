@@ -19,22 +19,22 @@ body {
         position: relative;
     }
 
-    &__logo {
-        position: absolute;
-        z-index: 10;
-        width: 50vw;
-        height: auto;
-        transform: translateY(-20vw);
-        @include breakpoint(m) {
-            transform: translateY(-20vw);
-        }
-    }
-
     &__canvas {
         width: 90vw;
         height: auto;
         margin: 0 auto;
         display: block;
+    }
+}
+
+.heading__logo {
+    position: absolute;
+    z-index: 10;
+    width: 50vw;
+    height: auto;
+    transform: translateY(-20vw);
+    @include breakpoint(m) {
+        transform: translateY(-20vw);
     }
 }
 
@@ -69,10 +69,6 @@ body {
     opacity: 0;
     transform: translateY(80px);
     transition: opacity 400ms ease, transform 800ms ease;
-    &.-active {
-        opacity: 1;
-        transform: translateY(0);
-    }
 
     &--left {
         width: 65vw;
@@ -111,6 +107,10 @@ body {
     }
 }
 
+.image.image--left.to-observe.-active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .link {
     color: $black;

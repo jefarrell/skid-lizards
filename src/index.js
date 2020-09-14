@@ -5,15 +5,6 @@ import imageDistort from './js/imageDistort';
 require('normalize.css/normalize.css');
 require('./styles/index.scss');
 
-function createHeading() {
-    const root = document.querySelector('.heading');
-    const mark = new Image();
-    mark.className = 'heading__logo'
-    mark.src = wordmark.default;
-    mark.alt = 'Skid Lizards logo';
-    root.appendChild(mark)
-}
-
 function createDistort() {
     const root = document.querySelector('.heading');
     const canvas = document.getElementById('heading__canvas');
@@ -78,7 +69,6 @@ function draw(v,c,w,h) {
 
 document.addEventListener('DOMContentLoaded', () => {
     createDistort();
-    createHeading();
     skidScroll();
     observe();
 });
