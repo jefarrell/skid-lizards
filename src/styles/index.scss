@@ -10,7 +10,16 @@ body {
     color: $orange;
     display: flex;
     justify-content: center;
-
+    &__logo {
+        position: absolute;
+        z-index: 10;
+        width: 50vw;
+        height: auto;
+        transform: translateY(-20vw);
+        @include breakpoint(m) {
+            transform: translateY(-20vw);
+        }
+    }
     @include breakpoint(m) {
         margin: 10vw;
     }
@@ -27,16 +36,9 @@ body {
     }
 }
 
-.heading__logo {
-    position: absolute;
-    z-index: 10;
-    width: 50vw;
-    height: auto;
-    transform: translateY(-20vw);
-    @include breakpoint(m) {
-        transform: translateY(-20vw);
-    }
-}
+// .heading__logo {
+
+// }
 
 .text {
     margin: 10vw;
@@ -69,7 +71,7 @@ body {
     opacity: 0;
     transform: translateY(80px);
     transition: opacity 400ms ease, transform 800ms ease;
-    &.-active {
+    .active {
         opacity: 1;
         transform: translateY(0);
     }

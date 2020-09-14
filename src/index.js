@@ -42,7 +42,7 @@ function observe() {
     els.forEach((el) => {
         window.addEventListener('scroll', (e) => {
             if (isVisible(el)) {
-                el.classList.add('-active')
+                el.classList.add('active')
             }
         })
     })

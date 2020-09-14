@@ -4,7 +4,6 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin'); //installed via npm
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 
@@ -38,13 +37,6 @@ module.exports = {
                     {
                         // translates CSS into CommonJS
                         loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        // Runs compiled CSS through postcss for vendor prefixing
-                        loader: 'postcss-loader',
                         options: {
                             sourceMap: true
                         }
@@ -122,19 +114,6 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
-        }),
-        new OptimizeCssAssetsPlugin({
-            cssProcessor: require('cssnano'),
-            cssProcessorOptions: {
-                map: {
-                    inline: false,
-                },
-                discardComments: {
-                    removeAll: true
-                },
-                discardUnused: false
-            },
-            canPrint: true
         })
     ]
 };
