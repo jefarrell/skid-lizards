@@ -50,13 +50,13 @@ function observe() {
     })
 }
 
+new VideoScroller({
+    el: document.querySelector('.video'),
+    invert: true,
+    scrollTimeout: 1000,
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-    new VideoScroller({
-        el: document.querySelector('.video'),
-        invert: true,
-        scrollTimeout: 100,
-    });
     createDistort();
     observe();
 });
