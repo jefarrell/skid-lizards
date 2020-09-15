@@ -18,7 +18,7 @@ body {
         height: auto;
         transform: translateY(30vw);
         @include breakpoint(m) {
-           transform: translateY(15vw);
+           transform: translateY(10vw);
         }
     }
     @include breakpoint(m) {
@@ -76,7 +76,6 @@ body {
     &--left {
         width: 65vw;
         @include breakpoint(m) {
-            margin-right: 2.5vw;
             width: 40vw;
         }
     }
@@ -87,7 +86,6 @@ body {
         margin-top: 24px;
         @include breakpoint(m) {
             margin-top: 0;
-            margin-left: 2.5vw;
             width: 40vw;
         }
     }
@@ -105,7 +103,8 @@ body {
         flex-direction: column;
         @include breakpoint(m) {
             flex-direction: row;
-            margin: 10vw;
+            justify-content: space-between;
+            margin: 5vw;
         }
     }
 }
