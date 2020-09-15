@@ -10,6 +10,7 @@ body {
     color: $orange;
     display: flex;
     justify-content: center;
+    overflow: hidden;
     &__logo {
         position: absolute;
         z-index: 10;
