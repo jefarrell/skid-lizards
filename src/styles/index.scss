@@ -16,9 +16,9 @@ body {
         z-index: 10;
         width: 50vw;
         height: auto;
-        transform: translateY(-20vw);
+        transform: translateY(30vw);
         @include breakpoint(m) {
-            transform: translateY(-20vw);
+           transform: translateY(15vw);
         }
     }
     @include breakpoint(m) {
@@ -36,10 +36,6 @@ body {
         display: block;
     }
 }
-
-// .heading__logo {
-
-// }
 
 .text {
     margin: 10vw;

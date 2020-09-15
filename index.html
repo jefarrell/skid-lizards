@@ -20,8 +20,8 @@
 <body>
     <main>
         <div class="heading">
-            <img alt="Skid Lizards logo" class="heading__logo" src="<%= require('./src/assets/wordmark.svg') %>" />
             <canvas id="heading__canvas"></canvas>
+            <img alt="Skid Lizards logo" class="heading__logo" src="<%= require('./src/assets/wordmark.svg') %>" />
         </div>
         <div class="text">
             <h1 class="text__title">Skid Lizards are a group of friends with bikes and jobs.</h1>
@@ -37,7 +37,7 @@
         </div>
         <div class="video__wrap">
             <canvas id="video__canvas"></canvas>
-            <video class="video" src="<%= require('./src/assets/skid.mov') %>" preload autobuffer></video>
+            <video class="video" data-src="<%= require('./src/assets/skid.mov') %>" preload autobuffer></video>
         </div>
         <div class="text">
             <h3 class="text__body">

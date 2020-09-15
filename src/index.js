@@ -1,5 +1,7 @@
 
+import VideoScroller from 'video-scroller';
 import * as forest from './assets/forest.jpg';
+import * as sd from './assets/sd.jpg';
 import * as wordmark from './assets/wordmark.svg';
 import imageDistort from './js/imageDistort';
 require('normalize.css/normalize.css');
@@ -19,7 +21,7 @@ function createDistort() {
     const canvas = document.getElementById('heading__canvas');
     const context = canvas.getContext('2d');
     const img = new Image();
-    img.src = forest.default;
+    img.src = sd.default;
     img.onload = () => {
         canvas.width = img.naturalWidth;
         canvas.height = img.naturalHeight;
@@ -48,37 +50,14 @@ function observe() {
     })
 }
 
-function scrub(vid) {
-    const duration = 1/100;
-    const frameNumber  = vid.getBoundingClientRect().top;
-    if (frameNumber > 0) {
-        vid.currentTime = Math.abs(frameNumber)/(720/375)*duration;
-    }
-}
-
-function skidScroll() {
-    const canvas = document.getElementById('video__canvas');
-    const context = canvas.getContext('2d');
-    const vid = document.querySelector('.video'); 
-    const cw = canvas.width;
-    const ch = canvas.height;
-
-    vid.addEventListener('play', () => {
-        draw(this, context, cw, ch);
-    }, false);
-
-    window.addEventListener('scroll', () => scrub(vid));
-}
-
-function draw(v,c,w,h) {
-    c.drawImage(v,0,0,w,h);
-    setTimeout(draw,20,v,c,w,h);
-}
-
 
 document.addEventListener('DOMContentLoaded', () => {
+    new VideoScroller({
+        el: document.querySelector('.video'),
+        invert: true,
+        scrollTimeout: 100,
+    });
     createDistort();
-    skidScroll();
     observe();
 });
 

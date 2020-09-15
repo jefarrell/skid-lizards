@@ -4,13 +4,13 @@ const imageDistort = (canvas, context, img) => {
   }
   
   function upDown(v) {
-    return Math.cos(v) * 0.5;
+    return Math.cos(v) * 0.75;
   }
   
   function render(time) {
-    time *= 0.00009;
+    time *= 0.0001;
     
-    let t1 = time/2;
+    let t1 = time/0.5;
     let t2 = time;
     
     for (let distY = 0; distY < canvas.height; distY++) {
@@ -18,7 +18,7 @@ const imageDistort = (canvas, context, img) => {
 
       let off1 = Math.cos((v + 0.5) * mix(3, 12, upDown(t1))) * 300;
       let off2 = Math.cos((v + 0.5) * mix(3, 12, upDown(t2))) * 300;
-      let off = off1 + off2;
+      let off = off2;
 
       let srcY = distY * img.height / canvas.height + off;
       
